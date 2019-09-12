@@ -1,0 +1,7 @@
+trigger:
+- master
+
+jobs:
+- template: azure-pipelines.yml
+  parameters:
+    ci: true
