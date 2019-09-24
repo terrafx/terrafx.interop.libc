@@ -9,8 +9,6 @@ namespace TerraFX.Interop
 {
     public static unsafe partial class Libc
     {
-        private const string libraryPath = "c";
-
         [DllImport(libraryPath, EntryPoint = "clock_getres", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int clock_getres([NativeTypeName("clockid_t")] int clock_id, [NativeTypeName("struct timespec *")] timespec* res);
 
