@@ -8,21 +8,71 @@ namespace TerraFX.Interop
 {
     public static unsafe partial class Libc
     {
-        private const string libraryPath = "libc";
+        private const string LibraryPath = "libc";
+
+        public static event DllImportResolver? ResolveLibrary;
 
         static Libc()
         {
-            NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), ResolveLibrary);
+            NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), OnDllImport);
         }
 
-        private static IntPtr ResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
+        private static IntPtr OnDllImport(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
         {
-            if (!NativeLibrary.TryLoad("libc.so", assembly, searchPath, out var nativeLibrary))
+            IntPtr nativeLibrary;
+
+            if (TryResolveLibrary(libraryName, assembly, searchPath, out nativeLibrary))
             {
-                nativeLibrary = NativeLibrary.Load("libc.so.6", assembly, searchPath);
+                return nativeLibrary;
             }
 
-            return nativeLibrary;
+            if (libraryName.Equals("libc") && TryResolveLibc(assembly, searchPath, out nativeLibrary))
+            {
+                return nativeLibrary;
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private static bool TryResolveLibc(Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
+        {
+            if (NativeLibrary.TryLoad("libc", assembly, searchPath, out nativeLibrary))
+            {
+                return true;
+            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                if (NativeLibrary.TryLoad("libc.so.6", assembly, searchPath, out nativeLibrary))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool TryResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
+        {
+            var resolveLibrary = ResolveLibrary;
+
+            if (resolveLibrary != null)
+            {
+                var resolvers = resolveLibrary.GetInvocationList();
+
+                foreach (DllImportResolver resolver in resolvers)
+                {
+                    nativeLibrary = resolver(libraryName, assembly, searchPath);
+
+                    if (nativeLibrary != IntPtr.Zero)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            nativeLibrary = IntPtr.Zero;
+            return false;
         }
     }
 }

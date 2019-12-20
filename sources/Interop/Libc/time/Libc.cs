@@ -9,13 +9,13 @@ namespace TerraFX.Interop
 {
     public static unsafe partial class Libc
     {
-        [DllImport(libraryPath, EntryPoint = "clock_getres", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        [DllImport(LibraryPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = "clock_getres", ExactSpelling = true, SetLastError = true)]
         public static extern int clock_getres([NativeTypeName("clockid_t")] int clock_id, [NativeTypeName("struct timespec *")] timespec* res);
 
-        [DllImport(libraryPath, EntryPoint = "clock_gettime", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        [DllImport(LibraryPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = "clock_gettime", ExactSpelling = true, SetLastError = true)]
         public static extern int clock_gettime([NativeTypeName("clockid_t")] int clock_id, [NativeTypeName("struct timespec *")] timespec* tp);
 
-        [DllImport(libraryPath, EntryPoint = "clock_settime", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        [DllImport(LibraryPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = "clock_settime", ExactSpelling = true, SetLastError = true)]
         public static extern int clock_settime([NativeTypeName("clockid_t")] int clock_id, [NativeTypeName("struct timespec *")] timespec* tp);
     }
 }
