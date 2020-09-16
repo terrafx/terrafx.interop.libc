@@ -1,0 +1,12 @@
+@../../settings.rsp
+@../../remap.rsp
+--exclude
+_LOCALE_H
+--file
+libc-locale.h
+--output
+../../../sources/Interop/Libc/locale
+--test-output
+../../../tests/Interop/Libc/locale
+--traverse
+/usr/include/locale.h

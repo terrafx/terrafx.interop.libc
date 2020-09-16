@@ -5,12 +5,12 @@
 
 namespace TerraFX.Interop
 {
-    public partial struct timespec
+    public partial struct itimerspec
     {
-        [NativeTypeName("__time_t")]
-        public nint tv_sec;
+        [NativeTypeName("struct timespec")]
+        public timespec it_interval;
 
-        [NativeTypeName("__syscall_slong_t")]
-        public nint tv_nsec;
+        [NativeTypeName("struct timespec")]
+        public timespec it_value;
     }
 }
