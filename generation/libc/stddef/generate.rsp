@@ -1,0 +1,10 @@
+@../../settings.rsp
+@../../remap.rsp
+--file
+libc-stddef.h
+--output
+../../../sources/Interop/Libc/stddef
+--test-output
+../../../tests/Interop/Libc/stddef
+--traverse
+/usr/include/stddef.h

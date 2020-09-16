@@ -1,0 +1,5 @@
+--remap
+locale_t=IntPtr
+pthread_attr_t*=IntPtr
+sigcontext*=IntPtr
+__sigset_t=sigset_t

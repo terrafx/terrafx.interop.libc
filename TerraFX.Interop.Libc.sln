@@ -57,15 +57,83 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TerraFX.Interop.Libc.UnitTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{48E1F49D-7103-4DE6-9F69-915183B85095}"
 	ProjectSection(SolutionItems) = preProject
-		scripts\azure-ci.yml = scripts\azure-ci.yml
-		scripts\azure-pipelines.yml = scripts\azure-pipelines.yml
-		scripts\azure-pr.yml = scripts\azure-pr.yml
-		scripts\azure-unix.yml = scripts\azure-unix.yml
-		scripts\azure-windows.yml = scripts\azure-windows.yml
 		scripts\build.ps1 = scripts\build.ps1
 		scripts\build.sh = scripts\build.sh
 		scripts\cibuild.cmd = scripts\cibuild.cmd
 		scripts\cibuild.sh = scripts\cibuild.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{14317A6D-D419-404D-A4A9-E64088152E32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{2BDD70BB-9023-44D6-A27B-AB51F667C254}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generation", "generation", "{FBE83387-7EF8-4D3A-AEA3-47633DF12304}"
+	ProjectSection(SolutionItems) = preProject
+		generation\remap.rsp = generation\remap.rsp
+		generation\settings.rsp = generation\settings.rsp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "time", "time", "{7C9C7355-2DD0-4BB7-AAB0-C5A91FCABB71}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\time\generate.rsp = generation\libc\time\generate.rsp
+		generation\libc\time\header.txt = generation\libc\time\header.txt
+		generation\libc\time\libc-time.h = generation\libc\time\libc-time.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sys", "sys", "{2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "time", "time", "{B1011F23-E4A9-4124-9CB3-7FBF2DF9EAB3}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\sys\time\generate.rsp = generation\libc\sys\time\generate.rsp
+		generation\libc\sys\time\header.txt = generation\libc\sys\time\header.txt
+		generation\libc\sys\time\libc-sys-time.h = generation\libc\sys\time\libc-sys-time.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libc", "libc", "{1ED2A9EC-8EFA-4490-B004-60C142AB34AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signal", "signal", "{636550A0-389A-4F41-A47F-6A8CC4C86C9B}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\signal\generate.rsp = generation\libc\signal\generate.rsp
+		generation\libc\signal\header.txt = generation\libc\signal\header.txt
+		generation\libc\signal\libc-signal.h = generation\libc\signal\libc-signal.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "types", "types", "{D74751B0-3E3C-4A0F-A4EB-FF2FF49BA3E8}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\sys\types\generate.rsp = generation\libc\sys\types\generate.rsp
+		generation\libc\sys\types\header.txt = generation\libc\sys\types\header.txt
+		generation\libc\sys\types\libc-sys-types.h = generation\libc\sys\types\libc-sys-types.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "locale", "locale", "{DAB10086-55A1-4E8E-B01C-F2B7DC736D06}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\locale\generate.rsp = generation\libc\locale\generate.rsp
+		generation\libc\locale\header.txt = generation\libc\locale\header.txt
+		generation\libc\locale\libc-locale.h = generation\libc\locale\libc-locale.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stddef", "stddef", "{10F69E5B-A7ED-4244-AB83-9E751784F43C}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\stddef\generate.rsp = generation\libc\stddef\generate.rsp
+		generation\libc\stddef\header.txt = generation\libc\stddef\header.txt
+		generation\libc\stddef\libc-stddef.h = generation\libc\stddef\libc-stddef.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "errno", "errno", "{56B87EF6-153A-4BAA-B67D-E1A2CFA74CE8}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\errno\generate.rsp = generation\libc\errno\generate.rsp
+		generation\libc\errno\header.txt = generation\libc\errno\header.txt
+		generation\libc\errno\libc-errno.h = generation\libc\errno\libc-errno.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "select", "select", "{C1BFF6FC-B61E-4B94-A852-F1B5709FD48C}"
+	ProjectSection(SolutionItems) = preProject
+		generation\libc\sys\select\generate.rsp = generation\libc\sys\select\generate.rsp
+		generation\libc\sys\select\header.txt = generation\libc\sys\select\header.txt
+		generation\libc\sys\select\libc-sys-select.h = generation\libc\sys\select\libc-sys-select.h
 	EndProjectSection
 EndProject
 Global
@@ -93,6 +161,17 @@ Global
 		{7E31C739-2787-44ED-8304-7EFCEE1A2B2C} = {EFB05081-EC44-49D3-B6D1-52AE42085B5B}
 		{32D5D5C6-C467-4200-A978-4DCEBAD16ABF} = {7E31C739-2787-44ED-8304-7EFCEE1A2B2C}
 		{FE1214EA-21BD-4087-AD01-D42DBA8572FE} = {32D5D5C6-C467-4200-A978-4DCEBAD16ABF}
+		{2BDD70BB-9023-44D6-A27B-AB51F667C254} = {14317A6D-D419-404D-A4A9-E64088152E32}
+		{7C9C7355-2DD0-4BB7-AAB0-C5A91FCABB71} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{2894C5C1-EDB9-41B4-94CF-AE84BD8911DF} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{B1011F23-E4A9-4124-9CB3-7FBF2DF9EAB3} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
+		{1ED2A9EC-8EFA-4490-B004-60C142AB34AD} = {FBE83387-7EF8-4D3A-AEA3-47633DF12304}
+		{636550A0-389A-4F41-A47F-6A8CC4C86C9B} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{D74751B0-3E3C-4A0F-A4EB-FF2FF49BA3E8} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
+		{DAB10086-55A1-4E8E-B01C-F2B7DC736D06} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{10F69E5B-A7ED-4244-AB83-9E751784F43C} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{56B87EF6-153A-4BAA-B67D-E1A2CFA74CE8} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{C1BFF6FC-B61E-4B94-A852-F1B5709FD48C} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FE36DF8-2D9C-4F20-8787-45DC74B57461}
