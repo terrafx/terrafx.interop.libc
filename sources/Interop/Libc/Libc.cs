@@ -4,7 +4,7 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop
+namespace TerraFX.Interop.LibC
 {
     public static unsafe partial class Libc
     {

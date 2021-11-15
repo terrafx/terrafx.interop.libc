@@ -1,5 +1,13 @@
 --remap
-locale_t=IntPtr
-pthread_attr_t*=IntPtr
-sigcontext*=IntPtr
+fpregset_t=@IntPtr
+locale_t=@IntPtr
+pthread_attr_t*=@IntPtr
+sigcontext*=@IntPtr
+sigevent=@sigevent_t
+sigval=@sigval_t
+_GUID=Guid
+__fsid_t=fsid_t
+__NSConstantString_tag=__NSConstantString
+__pthread_internal_list=__pthread_list_t
+__pthread_internal_slist=__pthread_slist_t
 __sigset_t=sigset_t

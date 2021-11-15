@@ -5,10 +5,14 @@ _BITS_ERRNO_H
 _ERRNO_H
 --file
 libc-errno.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
 --output
-../../../sources/Interop/Libc/errno
+../../../sources/Interop/Libc/LibC/errno
 --test-output
-../../../tests/Interop/Libc/errno
+../../../tests/Interop/Libc/LibC/errno
 --traverse
 /usr/include/asm-generic/errno.h
 /usr/include/asm-generic/errno-base.h

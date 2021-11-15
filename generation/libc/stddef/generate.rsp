@@ -2,9 +2,13 @@
 @../../remap.rsp
 --file
 libc-stddef.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
 --output
-../../../sources/Interop/Libc/stddef
+../../../sources/Interop/Libc/LibC/stddef
 --test-output
-../../../tests/Interop/Libc/stddef
+../../../tests/Interop/Libc/LibC/stddef
 --traverse
 /usr/include/stddef.h

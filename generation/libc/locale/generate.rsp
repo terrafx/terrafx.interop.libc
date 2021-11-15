@@ -4,9 +4,13 @@
 _LOCALE_H
 --file
 libc-locale.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
 --output
-../../../sources/Interop/Libc/locale
+../../../sources/Interop/Libc/LibC/locale
 --test-output
-../../../tests/Interop/Libc/locale
+../../../tests/Interop/Libc/LibC/locale
 --traverse
 /usr/include/locale.h
