@@ -14,10 +14,14 @@ __time_t_defined
 __timer_t_defined
 --file
 libc-time.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
 --output
-../../../sources/Interop/Libc/time
+../../../sources/Interop/Libc/LibC/time
 --test-output
-../../../tests/Interop/Libc/time
+../../../tests/Interop/Libc/LibC/time
 --traverse
 /usr/include/time.h
 /usr/include/x86_64-linux-gnu/bits/time.h

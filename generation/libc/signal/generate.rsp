@@ -3,6 +3,7 @@
 --exclude
 sigmask
 sigstack(struct sigstack *, struct sigstack *):int
+ucontext_t
 _BITS_SIGACTION_H
 _BITS_SIGEVENT_CONSTS_H
 _BITS_SIGINFO_ARCH_H
@@ -10,6 +11,9 @@ _BITS_SIGINFO_CONSTS_ARCH_H
 _BITS_SIGINFO_CONSTS_H
 _BITS_SIGNUM_GENERIC_H
 _BITS_SIGNUM_H
+_libc_fpstate
+_libc_fpxreg
+_libc_xmmreg
 _NSIG
 _SIGSET_NWORDS
 _SYS_UCONTEXT_H
@@ -32,10 +36,14 @@ __sysv_signal
 __NGREG
 --file
 libc-signal.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
 --output
-../../../sources/Interop/Libc/signal
+../../../sources/Interop/Libc/LibC/signal
 --test-output
-../../../tests/Interop/Libc/signal
+../../../tests/Interop/Libc/LibC/signal
 --traverse
 /usr/include/signal.h
 /usr/include/x86_64-linux-gnu/bits/sigaction.h
