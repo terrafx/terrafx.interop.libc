@@ -93,9 +93,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sys", "sys", "{2894C5C1-EDB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "time", "time", "{B1011F23-E4A9-4124-9CB3-7FBF2DF9EAB3}"
 	ProjectSection(SolutionItems) = preProject
-		generation\libc\sys\time\generate.rsp = generation\libc\sys\time\generate.rsp
-		generation\libc\sys\time\header.txt = generation\libc\sys\time\header.txt
-		generation\libc\sys\time\libc-sys-time.h = generation\libc\sys\time\libc-sys-time.h
+		generation\Posix\sys\time\generate.rsp = generation\Posix\sys\time\generate.rsp
+		generation\Posix\sys\time\header.txt = generation\Posix\sys\time\header.txt
+		generation\Posix\sys\time\libc-sys-time.h = generation\Posix\sys\time\libc-sys-time.h
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libc", "libc", "{1ED2A9EC-8EFA-4490-B004-60C142AB34AD}"
@@ -109,9 +109,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signal", "signal", "{636550
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "types", "types", "{D74751B0-3E3C-4A0F-A4EB-FF2FF49BA3E8}"
 	ProjectSection(SolutionItems) = preProject
-		generation\libc\sys\types\generate.rsp = generation\libc\sys\types\generate.rsp
-		generation\libc\sys\types\header.txt = generation\libc\sys\types\header.txt
-		generation\libc\sys\types\libc-sys-types.h = generation\libc\sys\types\libc-sys-types.h
+		generation\Posix\sys\types\generate.rsp = generation\Posix\sys\types\generate.rsp
+		generation\Posix\sys\types\header.txt = generation\Posix\sys\types\header.txt
+		generation\Posix\sys\types\libc-sys-types.h = generation\Posix\sys\types\libc-sys-types.h
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "locale", "locale", "{DAB10086-55A1-4E8E-B01C-F2B7DC736D06}"
@@ -137,10 +137,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "errno", "errno", "{56B87EF6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "select", "select", "{C1BFF6FC-B61E-4B94-A852-F1B5709FD48C}"
 	ProjectSection(SolutionItems) = preProject
-		generation\libc\sys\select\generate.rsp = generation\libc\sys\select\generate.rsp
-		generation\libc\sys\select\header.txt = generation\libc\sys\select\header.txt
-		generation\libc\sys\select\libc-sys-select.h = generation\libc\sys\select\libc-sys-select.h
+		generation\Posix\sys\select\generate.rsp = generation\Posix\sys\select\generate.rsp
+		generation\Posix\sys\select\header.txt = generation\Posix\sys\select\header.txt
+		generation\Posix\sys\select\libc-sys-select.h = generation\Posix\sys\select\libc-sys-select.h
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posix", "Posix", "{7F536746-6545-45F2-A764-27089796DDB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,7 +171,7 @@ Global
 		{FE1214EA-21BD-4087-AD01-D42DBA8572FE} = {32D5D5C6-C467-4200-A978-4DCEBAD16ABF}
 		{2BDD70BB-9023-44D6-A27B-AB51F667C254} = {14317A6D-D419-404D-A4A9-E64088152E32}
 		{7C9C7355-2DD0-4BB7-AAB0-C5A91FCABB71} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
-		{2894C5C1-EDB9-41B4-94CF-AE84BD8911DF} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
+		{2894C5C1-EDB9-41B4-94CF-AE84BD8911DF} = {7F536746-6545-45F2-A764-27089796DDB6}
 		{B1011F23-E4A9-4124-9CB3-7FBF2DF9EAB3} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
 		{1ED2A9EC-8EFA-4490-B004-60C142AB34AD} = {FBE83387-7EF8-4D3A-AEA3-47633DF12304}
 		{636550A0-389A-4F41-A47F-6A8CC4C86C9B} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
@@ -178,6 +180,7 @@ Global
 		{10F69E5B-A7ED-4244-AB83-9E751784F43C} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
 		{56B87EF6-153A-4BAA-B67D-E1A2CFA74CE8} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
 		{C1BFF6FC-B61E-4B94-A852-F1B5709FD48C} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
+		{7F536746-6545-45F2-A764-27089796DDB6} = {FBE83387-7EF8-4D3A-AEA3-47633DF12304}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FE36DF8-2D9C-4F20-8787-45DC74B57461}
