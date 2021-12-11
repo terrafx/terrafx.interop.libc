@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 
 namespace TerraFX.Interop.LibC
 {
-    public static unsafe partial class Libc
+    public static unsafe partial class LibC
     {
         public static event DllImportResolver? ResolveLibrary;
 
-        static Libc()
+        static LibC()
         {
             NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), OnDllImport);
         }

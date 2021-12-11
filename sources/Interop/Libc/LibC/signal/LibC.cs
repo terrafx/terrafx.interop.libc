@@ -95,10 +95,10 @@ namespace TerraFX.Interop.LibC
         public static extern delegate* unmanaged<int, void> signal(int __sig, [NativeTypeName("__sighandler_t")] delegate* unmanaged<int, void> __handler);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int kill([NativeTypeName("__pid_t")] int __pid, int __sig);
+        public static extern int kill([NativeTypeName("__pid_t")] pid_t __pid, int __sig);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int killpg([NativeTypeName("__pid_t")] int __pgrp, int __sig);
+        public static extern int killpg([NativeTypeName("__pid_t")] pid_t __pgrp, int __sig);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int raise(int __sig);
@@ -153,28 +153,28 @@ namespace TerraFX.Interop.LibC
         public static extern int sigorset(sigset_t* __set, [NativeTypeName("const sigset_t *")] sigset_t* __left, [NativeTypeName("const sigset_t *")] sigset_t* __right);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigprocmask(int __how, [NativeTypeName("const sigset_t *__restrict")] sigset_t* __set, [NativeTypeName("sigset_t *__restrict")] sigset_t* __oset);
+        public static extern int sigprocmask(int __how, [NativeTypeName("const sigset_t *")] sigset_t* __set, sigset_t* __oset);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int sigsuspend([NativeTypeName("const sigset_t *")] sigset_t* __set);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigaction(int __sig, [NativeTypeName("const struct sigaction *__restrict")] sigaction* __act, [NativeTypeName("struct sigaction *__restrict")] sigaction* __oact);
+        public static extern int sigaction(int __sig, [NativeTypeName("const struct sigaction *")] sigaction* __act, [NativeTypeName("struct sigaction *")] sigaction* __oact);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int sigpending(sigset_t* __set);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigwait([NativeTypeName("const sigset_t *__restrict")] sigset_t* __set, [NativeTypeName("int *__restrict")] int* __sig);
+        public static extern int sigwait([NativeTypeName("const sigset_t *")] sigset_t* __set, int* __sig);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigwaitinfo([NativeTypeName("const sigset_t *__restrict")] sigset_t* __set, [NativeTypeName("siginfo_t *__restrict")] siginfo_t* __info);
+        public static extern int sigwaitinfo([NativeTypeName("const sigset_t *")] sigset_t* __set, siginfo_t* __info);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigtimedwait([NativeTypeName("const sigset_t *__restrict")] sigset_t* __set, [NativeTypeName("siginfo_t *__restrict")] siginfo_t* __info, [NativeTypeName("const struct timespec *__restrict")] timespec* __timeout);
+        public static extern int sigtimedwait([NativeTypeName("const sigset_t *")] sigset_t* __set, siginfo_t* __info, [NativeTypeName("const struct timespec *")] timespec* __timeout);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigqueue([NativeTypeName("__pid_t")] int __pid, int __sig, [NativeTypeName("const union sigval")] sigval_t __val);
+        public static extern int sigqueue([NativeTypeName("__pid_t")] pid_t __pid, int __sig, [NativeTypeName("const union sigval")] sigval_t __val);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int sigreturn([NativeTypeName("struct sigcontext *")] IntPtr __scp);
@@ -207,7 +207,7 @@ namespace TerraFX.Interop.LibC
         public static extern int siginterrupt(int __sig, int __interrupt);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int sigaltstack([NativeTypeName("const stack_t *__restrict")] stack_t* __ss, [NativeTypeName("stack_t *__restrict")] stack_t* __oss);
+        public static extern int sigaltstack([NativeTypeName("const stack_t *")] stack_t* __ss, stack_t* __oss);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int sighold(int __sig);

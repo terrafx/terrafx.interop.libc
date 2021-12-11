@@ -1,6 +1,6 @@
 // Copyright © Tanner Gooding and Contributors. Licensed under the MIT License (MIT). See License.md in the repository root for more information.
 
-// Ported from /usr/include/time.h and corresponding dependencies of Ubuntu 20.04
+// Ported from /usr/include/x86_64-linux-gnu/sys/time.h and corresponding dependencies of Ubuntu 20.04
 // Original source is Copyright © Free Software Foundation, Inc. Licensed under the GNU Lesser General Public License v2.1 or later.
 
 // For the purposes of LGPL v3.0 this is a "Combined Work" where the "Application" (TerraFX.Interop.LibC) makes use of the "Library" (LibC)
@@ -10,12 +10,12 @@
 
 namespace TerraFX.Interop.LibC
 {
-    public partial struct timespec
+    public enum __itimer_which_t
     {
-        [NativeTypeName("__time_t")]
-        public time_t tv_sec;
+        ITIMER_REAL = 0,
 
-        [NativeTypeName("__syscall_slong_t")]
-        public nint tv_nsec;
+        ITIMER_VIRTUAL = 1,
+
+        ITIMER_PROF = 2,
     }
 }

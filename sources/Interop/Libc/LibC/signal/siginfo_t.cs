@@ -63,10 +63,10 @@ namespace TerraFX.Interop.LibC
             public partial struct __kill_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
             }
 
             public partial struct __timer_e__Struct
@@ -82,10 +82,10 @@ namespace TerraFX.Interop.LibC
             public partial struct __rt_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
 
                 [NativeTypeName("__sigval_t")]
                 public sigval_t si_sigval;
@@ -94,18 +94,18 @@ namespace TerraFX.Interop.LibC
             public partial struct __sigchld_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
 
                 public int si_status;
 
                 [NativeTypeName("__clock_t")]
-                public nint si_utime;
+                public clock_t si_utime;
 
                 [NativeTypeName("__clock_t")]
-                public nint si_stime;
+                public clock_t si_stime;
             }
 
             public unsafe partial struct __sigfault_e__Struct

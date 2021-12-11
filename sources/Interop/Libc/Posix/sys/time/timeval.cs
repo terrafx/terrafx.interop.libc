@@ -13,9 +13,9 @@ namespace TerraFX.Interop.LibC
     public partial struct timeval
     {
         [NativeTypeName("__time_t")]
-        public nint tv_sec;
+        public time_t tv_sec;
 
         [NativeTypeName("__suseconds_t")]
-        public nint tv_usec;
+        public suseconds_t tv_usec;
     }
 }

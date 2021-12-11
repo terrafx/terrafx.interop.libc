@@ -8,7 +8,6 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-using System;
 using System.Runtime.InteropServices;
 
 namespace TerraFX.Interop.LibC
@@ -34,7 +33,7 @@ namespace TerraFX.Interop.LibC
 
             [FieldOffset(0)]
             [NativeTypeName("__pid_t")]
-            public int _tid;
+            public pid_t _tid;
 
             [FieldOffset(0)]
             [NativeTypeName("struct (anonymous struct at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)")]
@@ -45,7 +44,7 @@ namespace TerraFX.Interop.LibC
                 [NativeTypeName("void (*)(__sigval_t)")]
                 public delegate* unmanaged<sigval_t, void> _function;
 
-                public IntPtr _attribute;
+                public pthread_attr_t* _attribute;
             }
         }
     }

@@ -8,7 +8,6 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-using System;
 using System.Runtime.InteropServices;
 
 namespace TerraFX.Interop.LibC
@@ -24,19 +23,16 @@ namespace TerraFX.Interop.LibC
         public static extern lconv* localeconv();
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("locale_t")]
-        public static extern IntPtr newlocale(int __category_mask, [NativeTypeName("const char *")] sbyte* __locale, [NativeTypeName("locale_t")] IntPtr __base);
+        public static extern locale_t newlocale(int __category_mask, [NativeTypeName("const char *")] sbyte* __locale, locale_t __base);
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("locale_t")]
-        public static extern IntPtr duplocale([NativeTypeName("locale_t")] IntPtr __dataset);
+        public static extern locale_t duplocale(locale_t __dataset);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern void freelocale([NativeTypeName("locale_t")] IntPtr __dataset);
+        public static extern void freelocale(locale_t __dataset);
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("locale_t")]
-        public static extern IntPtr uselocale([NativeTypeName("locale_t")] IntPtr __dataset);
+        public static extern locale_t uselocale(locale_t __dataset);
 
         [NativeTypeName("#define LC_CTYPE __LC_CTYPE")]
         public const int LC_CTYPE = 0;
@@ -117,6 +113,6 @@ namespace TerraFX.Interop.LibC
         public const int LC_ALL_MASK = ((1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10) | (1 << 11) | (1 << 12));
 
         [NativeTypeName("#define LC_GLOBAL_LOCALE ((locale_t) -1L)")]
-        public static IntPtr LC_GLOBAL_LOCALE => ((nint)(-1));
+        public static locale_t LC_GLOBAL_LOCALE => ((locale_t)(-1));
     }
 }
