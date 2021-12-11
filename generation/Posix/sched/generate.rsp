@@ -1,0 +1,14 @@
+@../../settings.rsp
+@../../remap.rsp
+--file
+libc-sched.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
+--output
+../../../sources/Interop/Libc/Posix/sched
+--test-output
+../../../tests/Interop/Libc/Posix/sched
+--traverse
+/usr/include/sched.h

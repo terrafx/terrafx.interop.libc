@@ -144,6 +144,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "select", "select", "{C1BFF6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posix", "Posix", "{7F536746-6545-45F2-A764-27089796DDB6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pthread", "pthread", "{053CAFFD-F011-4F17-A60C-3BDDCEA47368}"
+	ProjectSection(SolutionItems) = preProject
+		generation\Posix\pthread\generate.rsp = generation\Posix\pthread\generate.rsp
+		generation\Posix\pthread\header.txt = generation\Posix\pthread\header.txt
+		generation\Posix\pthread\libc-pthread.h = generation\Posix\pthread\libc-pthread.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sched", "sched", "{BEBDC95E-FE8B-4890-BCCB-7A5CFC65BA89}"
+	ProjectSection(SolutionItems) = preProject
+		generation\Posix\sched\generate.rsp = generation\Posix\sched\generate.rsp
+		generation\Posix\sched\header.txt = generation\Posix\sched\header.txt
+		generation\Posix\sched\libc-sched.h = generation\Posix\sched\libc-sched.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +195,8 @@ Global
 		{56B87EF6-153A-4BAA-B67D-E1A2CFA74CE8} = {1ED2A9EC-8EFA-4490-B004-60C142AB34AD}
 		{C1BFF6FC-B61E-4B94-A852-F1B5709FD48C} = {2894C5C1-EDB9-41B4-94CF-AE84BD8911DF}
 		{7F536746-6545-45F2-A764-27089796DDB6} = {FBE83387-7EF8-4D3A-AEA3-47633DF12304}
+		{053CAFFD-F011-4F17-A60C-3BDDCEA47368} = {7F536746-6545-45F2-A764-27089796DDB6}
+		{BEBDC95E-FE8B-4890-BCCB-7A5CFC65BA89} = {7F536746-6545-45F2-A764-27089796DDB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FE36DF8-2D9C-4F20-8787-45DC74B57461}

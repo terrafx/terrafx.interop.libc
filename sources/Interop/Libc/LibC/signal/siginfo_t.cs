@@ -1,7 +1,12 @@
 // Copyright © Tanner Gooding and Contributors. Licensed under the MIT License (MIT). See License.md in the repository root for more information.
 
-// Ported from include/signal.h in the Open Group Base Specifications: Issue 7
-// Original source is Copyright © The IEEE and The Open Group.
+// Ported from /usr/include/signal.h and corresponding dependencies of Ubuntu 20.04
+// Original source is Copyright © Free Software Foundation, Inc. Licensed under the GNU Lesser General Public License v2.1 or later.
+
+// For the purposes of LGPL v3.0 this is a "Combined Work" where the "Application" (TerraFX.Interop.LibC) makes use of the "Library" (LibC)
+// by dynamically linking to the "Library". The object code from of the "Application" incoroprates material from the source header files
+// that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
+// and inline functions and templates (ten or fewer lines in length).
 
 using System.Runtime.InteropServices;
 
@@ -58,10 +63,10 @@ namespace TerraFX.Interop.LibC
             public partial struct __kill_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
             }
 
             public partial struct __timer_e__Struct
@@ -77,10 +82,10 @@ namespace TerraFX.Interop.LibC
             public partial struct __rt_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
 
                 [NativeTypeName("__sigval_t")]
                 public sigval_t si_sigval;
@@ -89,18 +94,18 @@ namespace TerraFX.Interop.LibC
             public partial struct __sigchld_e__Struct
             {
                 [NativeTypeName("__pid_t")]
-                public int si_pid;
+                public pid_t si_pid;
 
                 [NativeTypeName("__uid_t")]
-                public uint si_uid;
+                public uid_t si_uid;
 
                 public int si_status;
 
                 [NativeTypeName("__clock_t")]
-                public nint si_utime;
+                public clock_t si_utime;
 
                 [NativeTypeName("__clock_t")]
-                public nint si_stime;
+                public clock_t si_stime;
             }
 
             public unsafe partial struct __sigfault_e__Struct

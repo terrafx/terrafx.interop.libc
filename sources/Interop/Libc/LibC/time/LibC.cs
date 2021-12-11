@@ -1,9 +1,13 @@
 // Copyright © Tanner Gooding and Contributors. Licensed under the MIT License (MIT). See License.md in the repository root for more information.
 
-// Ported from include/time.h in the Open Group Base Specifications: Issue 7
-// Original source is Copyright © The IEEE and The Open Group.
+// Ported from /usr/include/time.h and corresponding dependencies of Ubuntu 20.04
+// Original source is Copyright © Free Software Foundation, Inc. Licensed under the GNU Lesser General Public License v2.1 or later.
 
-using System;
+// For the purposes of LGPL v3.0 this is a "Combined Work" where the "Application" (TerraFX.Interop.LibC) makes use of the "Library" (LibC)
+// by dynamically linking to the "Library". The object code from of the "Application" incoroprates material from the source header files
+// that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
+// and inline functions and templates (ten or fewer lines in length).
+
 using System.Runtime.InteropServices;
 
 namespace TerraFX.Interop.LibC
@@ -11,54 +15,51 @@ namespace TerraFX.Interop.LibC
     public static unsafe partial class LibC
     {
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_adjtime([NativeTypeName("__clockid_t")] int __clock_id, [NativeTypeName("struct timex *")] timex* __utx);
+        public static extern int clock_adjtime(clockid_t __clock_id, [NativeTypeName("struct timex *")] timex* __utx);
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("clock_t")]
-        public static extern nint clock();
+        public static extern clock_t clock();
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("time_t")]
-        public static extern nint time([NativeTypeName("time_t *")] nint* __timer);
+        public static extern time_t time(time_t* __timer);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern double difftime([NativeTypeName("time_t")] nint __time1, [NativeTypeName("time_t")] nint __time0);
+        public static extern double difftime(time_t __time1, time_t __time0);
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("time_t")]
-        public static extern nint mktime([NativeTypeName("struct tm *")] tm* __tp);
+        public static extern time_t mktime([NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern nuint strftime([NativeTypeName("char *__restrict")] sbyte* __s, [NativeTypeName("size_t")] nuint __maxsize, [NativeTypeName("const char *__restrict")] sbyte* __format, [NativeTypeName("const struct tm *__restrict")] tm* __tp);
+        public static extern nuint strftime([NativeTypeName("char *")] sbyte* __s, [NativeTypeName("size_t")] nuint __maxsize, [NativeTypeName("const char *")] sbyte* __format, [NativeTypeName("const struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* strptime([NativeTypeName("const char *__restrict")] sbyte* __s, [NativeTypeName("const char *__restrict")] sbyte* __fmt, [NativeTypeName("struct tm *")] tm* __tp);
+        public static extern sbyte* strptime([NativeTypeName("const char *")] sbyte* __s, [NativeTypeName("const char *")] sbyte* __fmt, [NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern nuint strftime_l([NativeTypeName("char *__restrict")] sbyte* __s, [NativeTypeName("size_t")] nuint __maxsize, [NativeTypeName("const char *__restrict")] sbyte* __format, [NativeTypeName("const struct tm *__restrict")] tm* __tp, [NativeTypeName("locale_t")] IntPtr __loc);
+        public static extern nuint strftime_l([NativeTypeName("char *")] sbyte* __s, [NativeTypeName("size_t")] nuint __maxsize, [NativeTypeName("const char *")] sbyte* __format, [NativeTypeName("const struct tm *")] tm* __tp, locale_t __loc);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* strptime_l([NativeTypeName("const char *__restrict")] sbyte* __s, [NativeTypeName("const char *__restrict")] sbyte* __fmt, [NativeTypeName("struct tm *")] tm* __tp, [NativeTypeName("locale_t")] IntPtr __loc);
+        public static extern sbyte* strptime_l([NativeTypeName("const char *")] sbyte* __s, [NativeTypeName("const char *")] sbyte* __fmt, [NativeTypeName("struct tm *")] tm* __tp, locale_t __loc);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("struct tm *")]
-        public static extern tm* gmtime([NativeTypeName("const time_t *")] nint* __timer);
+        public static extern tm* gmtime([NativeTypeName("const time_t *")] time_t* __timer);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("struct tm *")]
-        public static extern tm* localtime([NativeTypeName("const time_t *")] nint* __timer);
+        public static extern tm* localtime([NativeTypeName("const time_t *")] time_t* __timer);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("struct tm *")]
-        public static extern tm* gmtime_r([NativeTypeName("const time_t *__restrict")] nint* __timer, [NativeTypeName("struct tm *__restrict")] tm* __tp);
+        public static extern tm* gmtime_r([NativeTypeName("const time_t *")] time_t* __timer, [NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("struct tm *")]
-        public static extern tm* localtime_r([NativeTypeName("const time_t *__restrict")] nint* __timer, [NativeTypeName("struct tm *__restrict")] tm* __tp);
+        public static extern tm* localtime_r([NativeTypeName("const time_t *")] time_t* __timer, [NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
@@ -66,26 +67,24 @@ namespace TerraFX.Interop.LibC
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* ctime([NativeTypeName("const time_t *")] nint* __timer);
+        public static extern sbyte* ctime([NativeTypeName("const time_t *")] time_t* __timer);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* asctime_r([NativeTypeName("const struct tm *__restrict")] tm* __tp, [NativeTypeName("char *__restrict")] sbyte* __buf);
+        public static extern sbyte* asctime_r([NativeTypeName("const struct tm *")] tm* __tp, [NativeTypeName("char *")] sbyte* __buf);
 
         [DllImport("libc", ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern sbyte* ctime_r([NativeTypeName("const time_t *__restrict")] nint* __timer, [NativeTypeName("char *__restrict")] sbyte* __buf);
+        public static extern sbyte* ctime_r([NativeTypeName("const time_t *")] time_t* __timer, [NativeTypeName("char *")] sbyte* __buf);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern void tzset();
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("time_t")]
-        public static extern nint timegm([NativeTypeName("struct tm *")] tm* __tp);
+        public static extern time_t timegm([NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
-        [return: NativeTypeName("time_t")]
-        public static extern nint timelocal([NativeTypeName("struct tm *")] tm* __tp);
+        public static extern time_t timelocal([NativeTypeName("struct tm *")] tm* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int dysize(int __year);
@@ -94,34 +93,34 @@ namespace TerraFX.Interop.LibC
         public static extern int nanosleep([NativeTypeName("const struct timespec *")] timespec* __requested_time, [NativeTypeName("struct timespec *")] timespec* __remaining);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_getres([NativeTypeName("clockid_t")] int __clock_id, [NativeTypeName("struct timespec *")] timespec* __res);
+        public static extern int clock_getres(clockid_t __clock_id, [NativeTypeName("struct timespec *")] timespec* __res);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_gettime([NativeTypeName("clockid_t")] int __clock_id, [NativeTypeName("struct timespec *")] timespec* __tp);
+        public static extern int clock_gettime(clockid_t __clock_id, [NativeTypeName("struct timespec *")] timespec* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_settime([NativeTypeName("clockid_t")] int __clock_id, [NativeTypeName("const struct timespec *")] timespec* __tp);
+        public static extern int clock_settime(clockid_t __clock_id, [NativeTypeName("const struct timespec *")] timespec* __tp);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_nanosleep([NativeTypeName("clockid_t")] int __clock_id, int __flags, [NativeTypeName("const struct timespec *")] timespec* __req, [NativeTypeName("struct timespec *")] timespec* __rem);
+        public static extern int clock_nanosleep(clockid_t __clock_id, int __flags, [NativeTypeName("const struct timespec *")] timespec* __req, [NativeTypeName("struct timespec *")] timespec* __rem);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int clock_getcpuclockid([NativeTypeName("pid_t")] int __pid, [NativeTypeName("clockid_t *")] int* __clock_id);
+        public static extern int clock_getcpuclockid(pid_t __pid, clockid_t* __clock_id);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int timer_create([NativeTypeName("clockid_t")] int __clock_id, [NativeTypeName("struct sigevent *__restrict")] sigevent_t* __evp, [NativeTypeName("timer_t *__restrict")] void** __timerid);
+        public static extern int timer_create(clockid_t __clock_id, [NativeTypeName("struct sigevent *")] sigevent_t* __evp, timer_t* __timerid);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int timer_delete([NativeTypeName("timer_t")] void* __timerid);
+        public static extern int timer_delete(timer_t __timerid);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int timer_settime([NativeTypeName("timer_t")] void* __timerid, int __flags, [NativeTypeName("const struct itimerspec *__restrict")] itimerspec* __value, [NativeTypeName("struct itimerspec *__restrict")] itimerspec* __ovalue);
+        public static extern int timer_settime(timer_t __timerid, int __flags, [NativeTypeName("const struct itimerspec *")] itimerspec* __value, [NativeTypeName("struct itimerspec *")] itimerspec* __ovalue);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int timer_gettime([NativeTypeName("timer_t")] void* __timerid, [NativeTypeName("struct itimerspec *")] itimerspec* __value);
+        public static extern int timer_gettime(timer_t __timerid, [NativeTypeName("struct itimerspec *")] itimerspec* __value);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int timer_getoverrun([NativeTypeName("timer_t")] void* __timerid);
+        public static extern int timer_getoverrun(timer_t __timerid);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int timespec_get([NativeTypeName("struct timespec *")] timespec* __ts, int __base);
@@ -131,10 +130,10 @@ namespace TerraFX.Interop.LibC
         public static extern tm* getdate([NativeTypeName("const char *")] sbyte* __string);
 
         [DllImport("libc", ExactSpelling = true)]
-        public static extern int getdate_r([NativeTypeName("const char *__restrict")] sbyte* __string, [NativeTypeName("struct tm *__restrict")] tm* __resbufp);
+        public static extern int getdate_r([NativeTypeName("const char *")] sbyte* __string, [NativeTypeName("struct tm *")] tm* __resbufp);
 
         [NativeTypeName("#define CLOCKS_PER_SEC ((__clock_t) 1000000)")]
-        public const nint CLOCKS_PER_SEC = ((nint)(1000000));
+        public static clock_t CLOCKS_PER_SEC => ((clock_t)(1000000));
 
         [NativeTypeName("#define CLOCK_REALTIME 0")]
         public const int CLOCK_REALTIME = 0;

@@ -1,0 +1,14 @@
+@../../settings.rsp
+@../../remap.rsp
+--file
+libc-pthread.h
+--methodClassName
+LibC
+--namespace
+TerraFX.Interop.LibC
+--output
+../../../sources/Interop/Libc/Posix/pthread
+--test-output
+../../../tests/Interop/Libc/Posix/pthread
+--traverse
+/usr/include/pthread.h
