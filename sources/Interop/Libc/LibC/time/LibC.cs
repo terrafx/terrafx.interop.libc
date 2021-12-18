@@ -107,19 +107,19 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int clock_getcpuclockid(pid_t __pid, clockid_t* __clock_id);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("librt", ExactSpelling = true)]
         public static extern int timer_create(clockid_t __clock_id, [NativeTypeName("struct sigevent *")] sigevent_t* __evp, timer_t* __timerid);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("librt", ExactSpelling = true)]
         public static extern int timer_delete(timer_t __timerid);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("librt", ExactSpelling = true)]
         public static extern int timer_settime(timer_t __timerid, int __flags, [NativeTypeName("const struct itimerspec *")] itimerspec* __value, [NativeTypeName("struct itimerspec *")] itimerspec* __ovalue);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("librt", ExactSpelling = true)]
         public static extern int timer_gettime(timer_t __timerid, [NativeTypeName("struct itimerspec *")] itimerspec* __value);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("librt", ExactSpelling = true)]
         public static extern int timer_getoverrun(timer_t __timerid);
 
         [DllImport("libc", ExactSpelling = true)]

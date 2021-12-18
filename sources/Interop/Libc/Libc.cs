@@ -27,6 +27,16 @@ namespace TerraFX.Interop.LibC
                 return nativeLibrary;
             }
 
+            if (libraryName.Equals("libpthread") && TryResolveLibpthread(assembly, searchPath, out nativeLibrary))
+            {
+                return nativeLibrary;
+            }
+
+            if (libraryName.Equals("librt") && TryResolveLibrt(assembly, searchPath, out nativeLibrary))
+            {
+                return nativeLibrary;
+            }
+
             return IntPtr.Zero;
         }
 
@@ -41,6 +51,32 @@ namespace TerraFX.Interop.LibC
             }
 
             return NativeLibrary.TryLoad("libc", assembly, searchPath, out nativeLibrary);
+        }
+
+        private static bool TryResolveLibpthread(Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                if (NativeLibrary.TryLoad("libpthread.so.0", assembly, searchPath, out nativeLibrary))
+                {
+                    return true;
+                }
+            }
+
+            return NativeLibrary.TryLoad("libpthread", assembly, searchPath, out nativeLibrary);
+        }
+
+        private static bool TryResolveLibrt(Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                if (NativeLibrary.TryLoad("librt.so.1", assembly, searchPath, out nativeLibrary))
+                {
+                    return true;
+                }
+            }
+
+            return NativeLibrary.TryLoad("librt", assembly, searchPath, out nativeLibrary);
         }
 
         private static bool TryResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
