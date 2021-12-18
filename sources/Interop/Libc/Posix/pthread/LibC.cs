@@ -122,26 +122,26 @@ namespace TerraFX.Interop.LibC
         [NativeTypeName("#define PTHREAD_BARRIER_SERIAL_THREAD -1")]
         public const int PTHREAD_BARRIER_SERIAL_THREAD = -1;
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_create(pthread_t* __newthread, [NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, delegate* unmanaged<void*, void*> __start_routine, void* __arg);
 
         [DoesNotReturn]
         [DllImport("libc", ExactSpelling = true)]
         public static extern void pthread_exit(void* __retval);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_join(pthread_t __th, void** __thread_return);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_tryjoin_np(pthread_t __th, void** __thread_return);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_timedjoin_np(pthread_t __th, void** __thread_return, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_clockjoin_np(pthread_t __th, void** __thread_return, clockid_t __clockid, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_detach(pthread_t __th);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -162,10 +162,10 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_attr_setdetachstate(pthread_attr_t* __attr, int __detachstate);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_getguardsize([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, [NativeTypeName("size_t*")] nuint* __guardsize);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_setguardsize(pthread_attr_t* __attr, [NativeTypeName("size_t")] nuint __guardsize);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -193,38 +193,38 @@ namespace TerraFX.Interop.LibC
         public static extern int pthread_attr_setscope(pthread_attr_t* __attr, int __scope);
 
         [Obsolete]
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_getstackaddr([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, void** __stackaddr);
 
         [Obsolete]
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_setstackaddr(pthread_attr_t* __attr, void* __stackaddr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_getstacksize([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, [NativeTypeName("size_t*")] nuint* __stacksize);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_setstacksize(pthread_attr_t* __attr, [NativeTypeName("size_t")] nuint __stacksize);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_getstack([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, void** __stackaddr, [NativeTypeName("size_t*")] nuint* __stacksize);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_setstack(pthread_attr_t* __attr, void* __stackaddr, [NativeTypeName("size_t")] nuint __stacksize);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_setaffinity_np(pthread_attr_t* __attr, [NativeTypeName("size_t")] nuint __cpusetsize, [NativeTypeName("const cpu_set_t*")] cpu_set_t* __cpuset);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_attr_getaffinity_np([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, [NativeTypeName("size_t")] nuint __cpusetsize, cpu_set_t* __cpuset);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getattr_default_np(pthread_attr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setattr_default_np([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getattr_np(pthread_t __th, pthread_attr_t* __attr);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -233,31 +233,31 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_getschedparam(pthread_t __target_thread, int* __policy, [NativeTypeName("struct sched_param*")] sched_param* __param);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setschedprio(pthread_t __target_thread, int __prio);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getname_np(pthread_t __target_thread, char* __buf, [NativeTypeName("size_t")] nuint __buflen);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setname_np(pthread_t __target_thread, [NativeTypeName("const sbyte*")] sbyte* __name);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getconcurrency();
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setconcurrency(int __level);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_yield();
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setaffinity_np(pthread_t __th, [NativeTypeName("size_t")] nuint __cpusetsize, [NativeTypeName("const cpu_set_t*")] cpu_set_t* __cpuset);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getaffinity_np(pthread_t __th, [NativeTypeName("size_t")] nuint __cpusetsize, cpu_set_t* __cpuset);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_once(pthread_once_t* __once_control, delegate* unmanaged<void> __init_routine);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -266,13 +266,11 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_setcanceltype(int __type, int* __oldtype);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_cancel(pthread_t __th);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern void pthread_testcancel();
-
-        // TODO ?
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_mutex_init(pthread_mutex_t* __mutex, [NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __mutexattr);
@@ -280,124 +278,124 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_mutex_destroy(pthread_mutex_t* __mutex);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_trylock(pthread_mutex_t* __mutex);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_mutex_lock(pthread_mutex_t* __mutex);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_timedlock(pthread_mutex_t* __mutex, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_clocklock(pthread_mutex_t* __mutex, clockid_t __clockid, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_mutex_unlock(pthread_mutex_t* __mutex);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_getprioceiling([NativeTypeName("const pthread_mutex_t*")] pthread_mutex_t* __mutex, int* __prioceiling);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_setprioceiling(pthread_mutex_t* __mutex, int __prioceiling, int* __old_ceiling);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_consistent(pthread_mutex_t* __mutex);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutex_consistent_np(pthread_mutex_t* __mutex);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_init(pthread_mutexattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_destroy(pthread_mutexattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_getpshared([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_setpshared(pthread_mutexattr_t* __attr, int __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_gettype([NativeTypeName("const pthread_mutexattr_t*")] pthread_mutexattr_t* __attr, int* __kind);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_settype(pthread_mutexattr_t* __attr, int __kind);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_getprotocol([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __protocol);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_setprotocol(pthread_mutexattr_t* __attr, int __protocol);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_getprioceiling([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __prioceiling);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_setprioceiling(pthread_mutexattr_t* __attr, int __prioceiling);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_getrobust([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __robustness);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_getrobust_np([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __robustness);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_setrobust(pthread_mutexattr_t* __attr, int __robustness);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_mutexattr_setrobust_np(pthread_mutexattr_t* __attr, int __robustness);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_init(pthread_rwlock_t* __rwlock, [NativeTypeName("const pthread_rwlockattr_t *")] pthread_rwlockattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_destroy(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_rdlock(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_tryrdlock(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_timedrdlock(pthread_rwlock_t* __rwlock, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_clockrdlock(pthread_rwlock_t* __rwlock, clockid_t __clockid, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_wrlock(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_trywrlock(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_timedwrlock(pthread_rwlock_t* __rwlock, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_clockwrlock(pthread_rwlock_t* __rwlock, clockid_t __clockid, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlock_unlock(pthread_rwlock_t* __rwlock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_init(pthread_rwlockattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_destroy(pthread_rwlockattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_getpshared([NativeTypeName("const pthread_rwlockattr_t *")] pthread_rwlockattr_t* __attr, int* __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t* __attr, int __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_getkind_np([NativeTypeName("const pthread_rwlockattr_t *")] pthread_rwlockattr_t* __attr, int* __pref);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_rwlockattr_setkind_np(pthread_rwlockattr_t* __attr, int __pref);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -418,7 +416,7 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_cond_timedwait(pthread_cond_t* __cond, pthread_mutex_t* __mutex, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_cond_clockwait(pthread_cond_t* __cond, pthread_mutex_t* __mutex, [NativeTypeName("__clockid_t")] clockid_t __clock_id, [NativeTypeName("const struct timespec*")] timespec* __abstime);
 
         [DllImport("libc", ExactSpelling = true)]
@@ -427,70 +425,67 @@ namespace TerraFX.Interop.LibC
         [DllImport("libc", ExactSpelling = true)]
         public static extern int pthread_condattr_destroy(pthread_condattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_condattr_getpshared([NativeTypeName("const pthread_condattr_t *")] pthread_condattr_t* __attr, int* __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_condattr_setpshared(pthread_condattr_t* __attr, int __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_condattr_getclock([NativeTypeName("const pthread_condattr_t *")] pthread_condattr_t* __attr, [NativeTypeName("__clockid_t *")] clockid_t* __clock_id);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_condattr_setclock(pthread_condattr_t* __attr, [NativeTypeName("__clockid_t")] clockid_t __clock_id);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_spin_init(pthread_spinlock_t* __lock, int __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_spin_destroy(pthread_spinlock_t* __lock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_spin_lock(pthread_spinlock_t* __lock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_spin_trylock(pthread_spinlock_t* __lock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_spin_unlock(pthread_spinlock_t* __lock);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrier_init(pthread_barrier_t* __barrier, [NativeTypeName("const pthread_barrierattr_t *")] pthread_barrierattr_t* __attr, [NativeTypeName("unsigned int")] uint __count);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrier_destroy(pthread_barrier_t* __barrier);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrier_wait(pthread_barrier_t* __barrier);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrierattr_init(pthread_barrierattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrierattr_destroy(pthread_barrierattr_t* __attr);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrierattr_getpshared([NativeTypeName("const pthread_barrierattr_t *")] pthread_barrierattr_t* __attr, int* __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_barrierattr_setpshared(pthread_barrierattr_t* __attr, int __pshared);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_key_create(pthread_key_t* __key, delegate* unmanaged<void*, void> __destr_function);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_key_delete(pthread_key_t __key);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern void* pthread_getspecific(pthread_key_t __key);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_setspecific(pthread_key_t __key, [NativeTypeName("const void *")] void* __pointer);
 
-        [DllImport("libc", ExactSpelling = true)]
+        [DllImport("libpthread", ExactSpelling = true)]
         public static extern int pthread_getcpuclockid(pthread_t __thread_id, [NativeTypeName("__clockid_t *")] clockid_t* __clock_id);
-
-        [DllImport("libc", ExactSpelling = true)]
-        public static extern int pthread_atfork(delegate* unmanaged<void> __prepare, delegate* unmanaged<void> __parent, delegate* unmanaged<void> __child);
     }
 }
