@@ -44,7 +44,7 @@ namespace TerraFX.Interop.LibC.UnitTests
             }
             catch (Exception exception)
             {
-                Assert.Fail(exception.Message);
+                Assert.Fail($"Fail: {exception.Message}");
             }
         }
 
