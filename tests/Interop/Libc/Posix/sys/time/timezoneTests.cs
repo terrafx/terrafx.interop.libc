@@ -6,30 +6,29 @@
 using NUnit.Framework;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="timezone" /> struct.</summary>
+public static unsafe partial class timezoneTests
 {
-    /// <summary>Provides validation of the <see cref="timezone" /> struct.</summary>
-    public static unsafe partial class timezoneTests
+    /// <summary>Validates that the <see cref="timezone" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="timezone" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<timezone>(), Is.EqualTo(sizeof(timezone)));
-        }
+        Assert.That(Marshal.SizeOf<timezone>(), Is.EqualTo(sizeof(timezone)));
+    }
 
-        /// <summary>Validates that the <see cref="timezone" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(timezone).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="timezone" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(timezone).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="timezone" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
-        {
-            Assert.That(sizeof(timezone), Is.EqualTo(8));
-        }
+    /// <summary>Validates that the <see cref="timezone" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        Assert.That(sizeof(timezone), Is.EqualTo(8));
     }
 }

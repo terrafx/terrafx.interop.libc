@@ -11,21 +11,20 @@
 using System.Runtime.InteropServices;
 using static TerraFX.Interop.LibC.LibC;
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+[StructLayout(LayoutKind.Explicit)]
+public unsafe partial struct pthread_rwlock_t
 {
-    [StructLayout(LayoutKind.Explicit)]
-    public unsafe partial struct pthread_rwlock_t
-    {
-        [FieldOffset(0)]
-        [NativeTypeName("struct __pthread_rwlock_arch_t")]
-        public __pthread_rwlock_arch_t __data;
+    [FieldOffset(0)]
+    [NativeTypeName("struct __pthread_rwlock_arch_t")]
+    public __pthread_rwlock_arch_t __data;
 
-        [FieldOffset(0)]
-        [NativeTypeName("char [__SIZEOF_PTHREAD_RWLOCK_T]")]
-        public fixed sbyte __size[__SIZEOF_PTHREAD_RWLOCK_T];
+    [FieldOffset(0)]
+    [NativeTypeName("char [__SIZEOF_PTHREAD_RWLOCK_T]")]
+    public fixed sbyte __size[__SIZEOF_PTHREAD_RWLOCK_T];
 
-        [FieldOffset(0)]
-        [NativeTypeName("long int")]
-        public nint __align;
-    }
+    [FieldOffset(0)]
+    [NativeTypeName("long int")]
+    public nint __align;
 }

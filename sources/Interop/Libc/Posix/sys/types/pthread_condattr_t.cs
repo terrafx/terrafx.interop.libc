@@ -11,16 +11,15 @@
 using System.Runtime.InteropServices;
 using static TerraFX.Interop.LibC.LibC;
 
-namespace TerraFX.Interop.LibC
-{
-    [StructLayout(LayoutKind.Explicit)]
-    public unsafe partial struct pthread_condattr_t
-    {
-        [FieldOffset(0)]
-        [NativeTypeName("char [__SIZEOF_PTHREAD_CONDATTR_T]")]
-        public fixed sbyte __size[__SIZEOF_PTHREAD_CONDATTR_T];
+namespace TerraFX.Interop.LibC;
 
-        [FieldOffset(0)]
-        public int __align;
-    }
+[StructLayout(LayoutKind.Explicit)]
+public unsafe partial struct pthread_condattr_t
+{
+    [FieldOffset(0)]
+    [NativeTypeName("char [__SIZEOF_PTHREAD_CONDATTR_T]")]
+    public fixed sbyte __size[__SIZEOF_PTHREAD_CONDATTR_T];
+
+    [FieldOffset(0)]
+    public int __align;
 }

@@ -8,16 +8,15 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public unsafe partial struct mcontext_t
 {
-    public unsafe partial struct mcontext_t
-    {
-        [NativeTypeName("gregset_t")]
-        public fixed long gregs[23];
+    [NativeTypeName("gregset_t")]
+    public fixed long gregs[23];
 
-        public fpregset_t fpregs;
+    public fpregset_t fpregs;
 
-        [NativeTypeName("unsigned long long [8]")]
-        public fixed ulong __reserved1[8];
-    }
+    [NativeTypeName("unsigned long long [8]")]
+    public fixed ulong __reserved1[8];
 }

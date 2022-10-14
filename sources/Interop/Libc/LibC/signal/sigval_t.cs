@@ -10,15 +10,14 @@
 
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC
-{
-    [StructLayout(LayoutKind.Explicit)]
-    public unsafe partial struct sigval_t
-    {
-        [FieldOffset(0)]
-        public int sival_int;
+namespace TerraFX.Interop.LibC;
 
-        [FieldOffset(0)]
-        public void* sival_ptr;
-    }
+[StructLayout(LayoutKind.Explicit)]
+public unsafe partial struct sigval_t
+{
+    [FieldOffset(0)]
+    public int sival_int;
+
+    [FieldOffset(0)]
+    public void* sival_ptr;
 }

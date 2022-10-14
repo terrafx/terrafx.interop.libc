@@ -8,14 +8,13 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
-{
-    public unsafe partial struct __pthread_list_t
-    {
-        [NativeTypeName("struct __pthread_internal_list *")]
-        public __pthread_list_t* __prev;
+namespace TerraFX.Interop.LibC;
 
-        [NativeTypeName("struct __pthread_internal_list *")]
-        public __pthread_list_t* __next;
-    }
+public unsafe partial struct __pthread_list_t
+{
+    [NativeTypeName("struct __pthread_internal_list *")]
+    public __pthread_list_t* __prev;
+
+    [NativeTypeName("struct __pthread_internal_list *")]
+    public __pthread_list_t* __next;
 }

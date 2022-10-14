@@ -8,14 +8,13 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
-{
-    public partial struct timespec
-    {
-        [NativeTypeName("__time_t")]
-        public time_t tv_sec;
+namespace TerraFX.Interop.LibC;
 
-        [NativeTypeName("__syscall_slong_t")]
-        public nint tv_nsec;
-    }
+public partial struct timespec
+{
+    [NativeTypeName("__time_t")]
+    public time_t tv_sec;
+
+    [NativeTypeName("__syscall_slong_t")]
+    public nint tv_nsec;
 }

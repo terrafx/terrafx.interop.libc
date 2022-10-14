@@ -7,37 +7,36 @@ using NUnit.Framework;
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="sigval" /> struct.</summary>
+public static unsafe partial class sigvalTests
 {
-    /// <summary>Provides validation of the <see cref="sigval" /> struct.</summary>
-    public static unsafe partial class sigvalTests
+    /// <summary>Validates that the <see cref="sigval" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="sigval" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<sigval>(), Is.EqualTo(sizeof(sigval)));
-        }
+        Assert.That(Marshal.SizeOf<sigval>(), Is.EqualTo(sizeof(sigval)));
+    }
 
-        /// <summary>Validates that the <see cref="sigval" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutExplicitTest()
-        {
-            Assert.That(typeof(sigval).IsExplicitLayout, Is.True);
-        }
+    /// <summary>Validates that the <see cref="sigval" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutExplicitTest()
+    {
+        Assert.That(typeof(sigval).IsExplicitLayout, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="sigval" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
+    /// <summary>Validates that the <see cref="sigval" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        if (Environment.Is64BitProcess)
         {
-            if (Environment.Is64BitProcess)
-            {
-                Assert.That(sizeof(sigval), Is.EqualTo(8));
-            }
-            else
-            {
-                Assert.That(sizeof(sigval), Is.EqualTo(4));
-            }
+            Assert.That(sizeof(sigval), Is.EqualTo(8));
+        }
+        else
+        {
+            Assert.That(sizeof(sigval), Is.EqualTo(4));
         }
     }
 }

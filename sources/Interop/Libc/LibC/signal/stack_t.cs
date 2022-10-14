@@ -8,15 +8,14 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public unsafe partial struct stack_t
 {
-    public unsafe partial struct stack_t
-    {
-        public void* ss_sp;
+    public void* ss_sp;
 
-        public int ss_flags;
+    public int ss_flags;
 
-        [NativeTypeName("size_t")]
-        public nuint ss_size;
-    }
+    [NativeTypeName("size_t")]
+    public nuint ss_size;
 }

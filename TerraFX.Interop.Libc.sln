@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{2F337CB6
 		build.sh = build.sh
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
 		LICENSE.md = LICENSE.md
+		NuGet.config = NuGet.config
 		pack.cmd = pack.cmd
 		pack.sh = pack.sh
 		restore.cmd = restore.cmd
@@ -23,8 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{2F337CB6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8793898A-6542-4606-AA82-AB14151D2D20}"
 	ProjectSection(SolutionItems) = preProject
-		docs\CODE_OF_CONDUCT.md = docs\CODE_OF_CONDUCT.md
 		docs\CODEOWNERS = docs\CODEOWNERS
+		docs\CODE_OF_CONDUCT.md = docs\CODE_OF_CONDUCT.md
 		docs\CONTRIBUTING.md = docs\CONTRIBUTING.md
 		docs\ISSUE_TEMPLATE.md = docs\ISSUE_TEMPLATE.md
 		docs\PULL_REQUEST_TEMPLATE.md = docs\PULL_REQUEST_TEMPLATE.md
@@ -158,6 +160,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sched", "sched", "{BEBDC95E
 		generation\Posix\sched\libc-sched.h = generation\Posix\sched\libc-sched.h
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEMPLATE", "{9BDC5730-53F4-499F-93C7-6A75D569EDE8}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug.md = .github\ISSUE_TEMPLATE\bug.md
+		.github\ISSUE_TEMPLATE\proposal.md = .github\ISSUE_TEMPLATE\proposal.md
+		.github\ISSUE_TEMPLATE\regression.md = .github\ISSUE_TEMPLATE\regression.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +206,7 @@ Global
 		{7F536746-6545-45F2-A764-27089796DDB6} = {FBE83387-7EF8-4D3A-AEA3-47633DF12304}
 		{053CAFFD-F011-4F17-A60C-3BDDCEA47368} = {7F536746-6545-45F2-A764-27089796DDB6}
 		{BEBDC95E-FE8B-4890-BCCB-7A5CFC65BA89} = {7F536746-6545-45F2-A764-27089796DDB6}
+		{9BDC5730-53F4-499F-93C7-6A75D569EDE8} = {14317A6D-D419-404D-A4A9-E64088152E32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FE36DF8-2D9C-4F20-8787-45DC74B57461}

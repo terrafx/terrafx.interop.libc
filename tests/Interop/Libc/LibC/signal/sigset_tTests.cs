@@ -7,37 +7,36 @@ using NUnit.Framework;
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="sigset_t" /> struct.</summary>
+public static unsafe partial class sigset_tTests
 {
-    /// <summary>Provides validation of the <see cref="sigset_t" /> struct.</summary>
-    public static unsafe partial class sigset_tTests
+    /// <summary>Validates that the <see cref="sigset_t" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="sigset_t" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<sigset_t>(), Is.EqualTo(sizeof(sigset_t)));
-        }
+        Assert.That(Marshal.SizeOf<sigset_t>(), Is.EqualTo(sizeof(sigset_t)));
+    }
 
-        /// <summary>Validates that the <see cref="sigset_t" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(sigset_t).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="sigset_t" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(sigset_t).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="sigset_t" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
+    /// <summary>Validates that the <see cref="sigset_t" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        if (Environment.Is64BitProcess)
         {
-            if (Environment.Is64BitProcess)
-            {
-                Assert.That(sizeof(sigset_t), Is.EqualTo(128));
-            }
-            else
-            {
-                Assert.That(sizeof(sigset_t), Is.EqualTo(64));
-            }
+            Assert.That(sizeof(sigset_t), Is.EqualTo(128));
+        }
+        else
+        {
+            Assert.That(sizeof(sigset_t), Is.EqualTo(64));
         }
     }
 }

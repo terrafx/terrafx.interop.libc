@@ -12,43 +12,42 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public partial struct sigset_t
 {
-    public partial struct sigset_t
+    [NativeTypeName("unsigned long [16]")]
+    public ___val_e__FixedBuffer __val;
+
+    public partial struct ___val_e__FixedBuffer
     {
-        [NativeTypeName("unsigned long [16]")]
-        public ___val_e__FixedBuffer __val;
+        public nuint e0;
+        public nuint e1;
+        public nuint e2;
+        public nuint e3;
+        public nuint e4;
+        public nuint e5;
+        public nuint e6;
+        public nuint e7;
+        public nuint e8;
+        public nuint e9;
+        public nuint e10;
+        public nuint e11;
+        public nuint e12;
+        public nuint e13;
+        public nuint e14;
+        public nuint e15;
 
-        public partial struct ___val_e__FixedBuffer
+        public ref nuint this[int index]
         {
-            public nuint e0;
-            public nuint e1;
-            public nuint e2;
-            public nuint e3;
-            public nuint e4;
-            public nuint e5;
-            public nuint e6;
-            public nuint e7;
-            public nuint e8;
-            public nuint e9;
-            public nuint e10;
-            public nuint e11;
-            public nuint e12;
-            public nuint e13;
-            public nuint e14;
-            public nuint e15;
-
-            public ref nuint this[int index]
-            {
-                [MethodImpl(MethodImplOptions.AggressiveInlining)]
-                get
-                {
-                    return ref AsSpan()[index];
-                }
-            }
-
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public Span<nuint> AsSpan() => MemoryMarshal.CreateSpan(ref e0, 16);
+            get
+            {
+                return ref AsSpan()[index];
+            }
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Span<nuint> AsSpan() => MemoryMarshal.CreateSpan(ref e0, 16);
     }
 }

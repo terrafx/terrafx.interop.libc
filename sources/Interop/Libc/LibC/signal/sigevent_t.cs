@@ -10,42 +10,41 @@
 
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public partial struct sigevent_t
 {
-    public partial struct sigevent_t
+    [NativeTypeName("__sigval_t")]
+    public sigval_t sigev_value;
+
+    public int sigev_signo;
+
+    public int sigev_notify;
+
+    [NativeTypeName("union (anonymous union at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:28:5)")]
+    public __sigev_un_e__Union _sigev_un;
+
+    [StructLayout(LayoutKind.Explicit)]
+    public unsafe partial struct __sigev_un_e__Union
     {
-        [NativeTypeName("__sigval_t")]
-        public sigval_t sigev_value;
+        [FieldOffset(0)]
+        [NativeTypeName("int [12]")]
+        public fixed int _pad[12];
 
-        public int sigev_signo;
+        [FieldOffset(0)]
+        [NativeTypeName("__pid_t")]
+        public pid_t _tid;
 
-        public int sigev_notify;
+        [FieldOffset(0)]
+        [NativeTypeName("struct (anonymous struct at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)")]
+        public __sigev_thread_e__Struct _sigev_thread;
 
-        [NativeTypeName("union (anonymous union at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:28:5)")]
-        public __sigev_un_e__Union _sigev_un;
-
-        [StructLayout(LayoutKind.Explicit)]
-        public unsafe partial struct __sigev_un_e__Union
+        public unsafe partial struct __sigev_thread_e__Struct
         {
-            [FieldOffset(0)]
-            [NativeTypeName("int [12]")]
-            public fixed int _pad[12];
+            [NativeTypeName("void (*)(__sigval_t)")]
+            public delegate* unmanaged<sigval_t, void> _function;
 
-            [FieldOffset(0)]
-            [NativeTypeName("__pid_t")]
-            public pid_t _tid;
-
-            [FieldOffset(0)]
-            [NativeTypeName("struct (anonymous struct at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)")]
-            public __sigev_thread_e__Struct _sigev_thread;
-
-            public unsafe partial struct __sigev_thread_e__Struct
-            {
-                [NativeTypeName("void (*)(__sigval_t)")]
-                public delegate* unmanaged<sigval_t, void> _function;
-
-                public pthread_attr_t* _attribute;
-            }
+            public pthread_attr_t* _attribute;
         }
     }
 }
