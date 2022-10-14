@@ -11,23 +11,22 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public static unsafe partial class LibC
 {
-    public static unsafe partial class LibC
-    {
-        [DllImport("libc", ExactSpelling = true)]
-        public static extern int select(int __nfds, fd_set* __readfds, fd_set* __writefds, fd_set* __exceptfds, [NativeTypeName("struct timeval *")] timeval* __timeout);
+    [DllImport("libc", ExactSpelling = true)]
+    public static extern int select(int __nfds, fd_set* __readfds, fd_set* __writefds, fd_set* __exceptfds, [NativeTypeName("struct timeval *")] timeval* __timeout);
 
-        [DllImport("libc", ExactSpelling = true)]
-        public static extern int pselect(int __nfds, fd_set* __readfds, fd_set* __writefds,  fd_set* __exceptfds, [NativeTypeName("const struct timespec *")] timespec* __timeout, [NativeTypeName("const __sigset_t *")] sigset_t* __sigmask);
+    [DllImport("libc", ExactSpelling = true)]
+    public static extern int pselect(int __nfds, fd_set* __readfds, fd_set* __writefds,  fd_set* __exceptfds, [NativeTypeName("const struct timespec *")] timespec* __timeout, [NativeTypeName("const __sigset_t *")] sigset_t* __sigmask);
 
-        [NativeTypeName("#define __FD_ZERO_STOS \"stosq\"")]
-        public static ReadOnlySpan<byte> __FD_ZERO_STOS => new byte[] { 0x73, 0x74, 0x6F, 0x73, 0x71, 0x00 };
+    [NativeTypeName("#define __FD_ZERO_STOS \"stosq\"")]
+    public static ReadOnlySpan<byte> __FD_ZERO_STOS => new byte[] { 0x73, 0x74, 0x6F, 0x73, 0x71, 0x00 };
 
-        [NativeTypeName("#define FD_SETSIZE __FD_SETSIZE")]
-        public const int FD_SETSIZE = 1024;
+    [NativeTypeName("#define FD_SETSIZE __FD_SETSIZE")]
+    public const int FD_SETSIZE = 1024;
 
-        [NativeTypeName("#define NFDBITS __NFDBITS")]
-        public static int NFDBITS => (8 * (int)(sizeof(nint)));
-    }
+    [NativeTypeName("#define NFDBITS __NFDBITS")]
+    public static int NFDBITS => (8 * (int)(sizeof(nint)));
 }

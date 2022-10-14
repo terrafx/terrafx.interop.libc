@@ -8,14 +8,13 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
-{
-    public partial struct itimerspec
-    {
-        [NativeTypeName("struct timespec")]
-        public timespec it_interval;
+namespace TerraFX.Interop.LibC;
 
-        [NativeTypeName("struct timespec")]
-        public timespec it_value;
-    }
+public partial struct itimerspec
+{
+    [NativeTypeName("struct timespec")]
+    public timespec it_interval;
+
+    [NativeTypeName("struct timespec")]
+    public timespec it_value;
 }

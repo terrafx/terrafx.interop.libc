@@ -6,30 +6,29 @@
 using NUnit.Framework;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="mcontext_t" /> struct.</summary>
+public static unsafe partial class mcontext_tTests
 {
-    /// <summary>Provides validation of the <see cref="mcontext_t" /> struct.</summary>
-    public static unsafe partial class mcontext_tTests
+    /// <summary>Validates that the <see cref="mcontext_t" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="mcontext_t" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<mcontext_t>(), Is.EqualTo(sizeof(mcontext_t)));
-        }
+        Assert.That(Marshal.SizeOf<mcontext_t>(), Is.EqualTo(sizeof(mcontext_t)));
+    }
 
-        /// <summary>Validates that the <see cref="mcontext_t" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(mcontext_t).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="mcontext_t" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(mcontext_t).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="mcontext_t" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
-        {
-            Assert.That(sizeof(mcontext_t), Is.EqualTo(256));
-        }
+    /// <summary>Validates that the <see cref="mcontext_t" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        Assert.That(sizeof(mcontext_t), Is.EqualTo(256));
     }
 }

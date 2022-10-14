@@ -8,14 +8,13 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public enum __itimer_which_t
 {
-    public enum __itimer_which_t
-    {
-        ITIMER_REAL = 0,
+    ITIMER_REAL = 0,
 
-        ITIMER_VIRTUAL = 1,
+    ITIMER_VIRTUAL = 1,
 
-        ITIMER_PROF = 2,
-    }
+    ITIMER_PROF = 2,
 }

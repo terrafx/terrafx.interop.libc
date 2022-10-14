@@ -7,37 +7,36 @@ using NUnit.Framework;
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="timespec" /> struct.</summary>
+public static unsafe partial class timespecTests
 {
-    /// <summary>Provides validation of the <see cref="timespec" /> struct.</summary>
-    public static unsafe partial class timespecTests
+    /// <summary>Validates that the <see cref="timespec" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="timespec" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<timespec>(), Is.EqualTo(sizeof(timespec)));
-        }
+        Assert.That(Marshal.SizeOf<timespec>(), Is.EqualTo(sizeof(timespec)));
+    }
 
-        /// <summary>Validates that the <see cref="timespec" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(timespec).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="timespec" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(timespec).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="timespec" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
+    /// <summary>Validates that the <see cref="timespec" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        if (Environment.Is64BitProcess)
         {
-            if (Environment.Is64BitProcess)
-            {
-                Assert.That(sizeof(timespec), Is.EqualTo(16));
-            }
-            else
-            {
-                Assert.That(sizeof(timespec), Is.EqualTo(8));
-            }
+            Assert.That(sizeof(timespec), Is.EqualTo(16));
+        }
+        else
+        {
+            Assert.That(sizeof(timespec), Is.EqualTo(8));
         }
     }
 }

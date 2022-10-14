@@ -8,26 +8,25 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public unsafe partial struct __pthread_mutex_s
 {
-    public unsafe partial struct __pthread_mutex_s
-    {
-        public int __lock;
+    public int __lock;
 
-        [NativeTypeName("unsigned int")]
-        public uint __count;
+    [NativeTypeName("unsigned int")]
+    public uint __count;
 
-        public int __owner;
+    public int __owner;
 
-        [NativeTypeName("unsigned int")]
-        public uint __nusers;
+    [NativeTypeName("unsigned int")]
+    public uint __nusers;
 
-        public int __kind;
+    public int __kind;
 
-        public short __spins;
+    public short __spins;
 
-        public short __elision;
+    public short __elision;
 
-        public __pthread_list_t __list;
-    }
+    public __pthread_list_t __list;
 }

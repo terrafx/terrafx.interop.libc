@@ -7,37 +7,36 @@ using NUnit.Framework;
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="stack_t" /> struct.</summary>
+public static unsafe partial class stack_tTests
 {
-    /// <summary>Provides validation of the <see cref="stack_t" /> struct.</summary>
-    public static unsafe partial class stack_tTests
+    /// <summary>Validates that the <see cref="stack_t" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="stack_t" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<stack_t>(), Is.EqualTo(sizeof(stack_t)));
-        }
+        Assert.That(Marshal.SizeOf<stack_t>(), Is.EqualTo(sizeof(stack_t)));
+    }
 
-        /// <summary>Validates that the <see cref="stack_t" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(stack_t).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="stack_t" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(stack_t).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="stack_t" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
+    /// <summary>Validates that the <see cref="stack_t" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        if (Environment.Is64BitProcess)
         {
-            if (Environment.Is64BitProcess)
-            {
-                Assert.That(sizeof(stack_t), Is.EqualTo(24));
-            }
-            else
-            {
-                Assert.That(sizeof(stack_t), Is.EqualTo(12));
-            }
+            Assert.That(sizeof(stack_t), Is.EqualTo(24));
+        }
+        else
+        {
+            Assert.That(sizeof(stack_t), Is.EqualTo(12));
         }
     }
 }

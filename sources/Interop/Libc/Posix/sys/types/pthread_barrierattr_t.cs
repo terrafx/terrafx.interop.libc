@@ -11,17 +11,16 @@
 using System.Runtime.InteropServices;
 using static TerraFX.Interop.LibC.LibC;
 
-namespace TerraFX.Interop.LibC
-{
-    [StructLayout(LayoutKind.Explicit)]
-    public unsafe partial struct pthread_barrierattr_t
-    {
-        [FieldOffset(0)]
-        [NativeTypeName("char [__SIZEOF_PTHREAD_BARRIERATTR_T]")]
-        public fixed sbyte __size[__SIZEOF_PTHREAD_BARRIERATTR_T];
+namespace TerraFX.Interop.LibC;
 
-        [FieldOffset(0)]
-        [NativeTypeName("long int")]
-        public nint __align;
-    }
+[StructLayout(LayoutKind.Explicit)]
+public unsafe partial struct pthread_barrierattr_t
+{
+    [FieldOffset(0)]
+    [NativeTypeName("char [__SIZEOF_PTHREAD_BARRIERATTR_T]")]
+    public fixed sbyte __size[__SIZEOF_PTHREAD_BARRIERATTR_T];
+
+    [FieldOffset(0)]
+    [NativeTypeName("long int")]
+    public nint __align;
 }

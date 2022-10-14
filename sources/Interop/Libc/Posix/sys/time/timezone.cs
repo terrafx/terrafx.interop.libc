@@ -8,12 +8,11 @@
 // that are provided as part of the "Library" and is limited to numerical parameters, data structure layouts and accessors, small macros,
 // and inline functions and templates (ten or fewer lines in length).
 
-namespace TerraFX.Interop.LibC
-{
-    public partial struct timezone
-    {
-        public int tz_minuteswest;
+namespace TerraFX.Interop.LibC;
 
-        public int tz_dsttime;
-    }
+public partial struct timezone
+{
+    public int tz_minuteswest;
+
+    public int tz_dsttime;
 }

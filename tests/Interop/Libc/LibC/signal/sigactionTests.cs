@@ -7,37 +7,36 @@ using NUnit.Framework;
 using System;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC.UnitTests
+namespace TerraFX.Interop.LibC.UnitTests;
+
+/// <summary>Provides validation of the <see cref="sigaction" /> struct.</summary>
+public static unsafe partial class sigactionTests
 {
-    /// <summary>Provides validation of the <see cref="sigaction" /> struct.</summary>
-    public static unsafe partial class sigactionTests
+    /// <summary>Validates that the <see cref="sigaction" /> struct is blittable.</summary>
+    [Test]
+    public static void IsBlittableTest()
     {
-        /// <summary>Validates that the <see cref="sigaction" /> struct is blittable.</summary>
-        [Test]
-        public static void IsBlittableTest()
-        {
-            Assert.That(Marshal.SizeOf<sigaction>(), Is.EqualTo(sizeof(sigaction)));
-        }
+        Assert.That(Marshal.SizeOf<sigaction>(), Is.EqualTo(sizeof(sigaction)));
+    }
 
-        /// <summary>Validates that the <see cref="sigaction" /> struct has the right <see cref="LayoutKind" />.</summary>
-        [Test]
-        public static void IsLayoutSequentialTest()
-        {
-            Assert.That(typeof(sigaction).IsLayoutSequential, Is.True);
-        }
+    /// <summary>Validates that the <see cref="sigaction" /> struct has the right <see cref="LayoutKind" />.</summary>
+    [Test]
+    public static void IsLayoutSequentialTest()
+    {
+        Assert.That(typeof(sigaction).IsLayoutSequential, Is.True);
+    }
 
-        /// <summary>Validates that the <see cref="sigaction" /> struct has the correct size.</summary>
-        [Test]
-        public static void SizeOfTest()
+    /// <summary>Validates that the <see cref="sigaction" /> struct has the correct size.</summary>
+    [Test]
+    public static void SizeOfTest()
+    {
+        if (Environment.Is64BitProcess)
         {
-            if (Environment.Is64BitProcess)
-            {
-                Assert.That(sizeof(sigaction), Is.EqualTo(152));
-            }
-            else
-            {
-                Assert.That(sizeof(sigaction), Is.EqualTo(76));
-            }
+            Assert.That(sizeof(sigaction), Is.EqualTo(152));
+        }
+        else
+        {
+            Assert.That(sizeof(sigaction), Is.EqualTo(76));
         }
     }
 }

@@ -11,103 +11,102 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace TerraFX.Interop.LibC
+namespace TerraFX.Interop.LibC;
+
+public unsafe partial struct __pthread_cond_s
 {
-    public unsafe partial struct __pthread_cond_s
+    public _Anonymous1_e__Union Anonymous1;
+
+    public _Anonymous2_e__Union Anonymous2;
+
+    [NativeTypeName("unsigned int [2]")]
+    public fixed uint __g_refs[2];
+
+    [NativeTypeName("unsigned int [2]")]
+    public fixed uint __g_size[2];
+
+    [NativeTypeName("unsigned int")]
+    public uint __g1_orig_size;
+
+    [NativeTypeName("unsigned int")]
+    public uint __wrefs;
+
+    [NativeTypeName("unsigned int [2]")]
+    public fixed uint __g_signals[2];
+
+    public ref ulong __wseq
     {
-        public _Anonymous1_e__Union Anonymous1;
-
-        public _Anonymous2_e__Union Anonymous2;
-
-        [NativeTypeName("unsigned int [2]")]
-        public fixed uint __g_refs[2];
-
-        [NativeTypeName("unsigned int [2]")]
-        public fixed uint __g_size[2];
-
-        [NativeTypeName("unsigned int")]
-        public uint __g1_orig_size;
-
-        [NativeTypeName("unsigned int")]
-        public uint __wrefs;
-
-        [NativeTypeName("unsigned int [2]")]
-        public fixed uint __g_signals[2];
-
-        public ref ulong __wseq
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous1.__wseq, 1));
-            }
+            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous1.__wseq, 1));
         }
+    }
 
-        public ref _Anonymous1_e__Union.___wseq32_e__Struct __wseq32
+    public ref _Anonymous1_e__Union.___wseq32_e__Struct __wseq32
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous1.__wseq32, 1));
-            }
+            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous1.__wseq32, 1));
         }
+    }
 
-        public ref ulong __g1_start
+    public ref ulong __g1_start
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous2.__g1_start, 1));
-            }
+            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous2.__g1_start, 1));
         }
+    }
 
-        public ref _Anonymous2_e__Union.___g1_start32_e__Struct __g1_start32
+    public ref _Anonymous2_e__Union.___g1_start32_e__Struct __g1_start32
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get
         {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous2.__g1_start32, 1));
-            }
+            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref Anonymous2.__g1_start32, 1));
         }
+    }
 
-        [StructLayout(LayoutKind.Explicit)]
-        public partial struct _Anonymous1_e__Union
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct _Anonymous1_e__Union
+    {
+        [FieldOffset(0)]
+        [NativeTypeName("unsigned long long int")]
+        public ulong __wseq;
+
+        [FieldOffset(0)]
+        public ___wseq32_e__Struct __wseq32;
+
+        public partial struct ___wseq32_e__Struct
         {
-            [FieldOffset(0)]
-            [NativeTypeName("unsigned long long int")]
-            public ulong __wseq;
+            [NativeTypeName("unsigned int")]
+            public uint __low;
 
-            [FieldOffset(0)]
-            public ___wseq32_e__Struct __wseq32;
-
-            public partial struct ___wseq32_e__Struct
-            {
-                [NativeTypeName("unsigned int")]
-                public uint __low;
-
-                [NativeTypeName("unsigned int")]
-                public uint __high;
-            }
+            [NativeTypeName("unsigned int")]
+            public uint __high;
         }
+    }
 
-        [StructLayout(LayoutKind.Explicit)]
-        public partial struct _Anonymous2_e__Union
+    [StructLayout(LayoutKind.Explicit)]
+    public partial struct _Anonymous2_e__Union
+    {
+        [FieldOffset(0)]
+        [NativeTypeName("unsigned long long int")]
+        public ulong __g1_start;
+
+        [FieldOffset(0)]
+        public ___g1_start32_e__Struct __g1_start32;
+
+        public partial struct ___g1_start32_e__Struct
         {
-            [FieldOffset(0)]
-            [NativeTypeName("unsigned long long int")]
-            public ulong __g1_start;
+            [NativeTypeName("unsigned int")]
+            public uint __low;
 
-            [FieldOffset(0)]
-            public ___g1_start32_e__Struct __g1_start32;
-
-            public partial struct ___g1_start32_e__Struct
-            {
-                [NativeTypeName("unsigned int")]
-                public uint __low;
-
-                [NativeTypeName("unsigned int")]
-                public uint __high;
-            }
+            [NativeTypeName("unsigned int")]
+            public uint __high;
         }
     }
 }
