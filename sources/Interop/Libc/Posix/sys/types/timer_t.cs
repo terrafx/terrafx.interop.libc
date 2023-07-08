@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct timer_t : IComparable, IComparable<timer_t>, IEquatable<timer_t>, IFormattable
+public readonly unsafe partial struct timer_t : IComparable, IComparable<timer_t>, IEquatable<timer_t>, IFormattable
 {
     public readonly void* Value;
 

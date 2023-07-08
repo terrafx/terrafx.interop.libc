@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct pthread_t : IComparable, IComparable<pthread_t>, IEquatable<pthread_t>, IFormattable
+public readonly unsafe partial struct pthread_t : IComparable, IComparable<pthread_t>, IEquatable<pthread_t>, IFormattable
 {
     [NativeTypeName("unsigned long int")]
     public readonly nuint Value;

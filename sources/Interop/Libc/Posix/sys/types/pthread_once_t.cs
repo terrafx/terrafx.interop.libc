@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct pthread_once_t : IComparable, IComparable<pthread_once_t>, IEquatable<pthread_once_t>, IFormattable
+public readonly unsafe partial struct pthread_once_t : IComparable, IComparable<pthread_once_t>, IEquatable<pthread_once_t>, IFormattable
 {
     public readonly int Value;
 

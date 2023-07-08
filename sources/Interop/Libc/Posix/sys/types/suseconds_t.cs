@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct suseconds_t : IComparable, IComparable<suseconds_t>, IEquatable<suseconds_t>, IFormattable
+public readonly unsafe partial struct suseconds_t : IComparable, IComparable<suseconds_t>, IEquatable<suseconds_t>, IFormattable
 {
     public readonly nint Value;
 

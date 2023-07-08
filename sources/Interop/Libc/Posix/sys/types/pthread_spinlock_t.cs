@@ -73,7 +73,7 @@ public unsafe partial struct pthread_spinlock_t : IComparable, IComparable<pthre
 
     public static explicit operator nuint(pthread_spinlock_t value) => (nuint)(value.Value);
 
-    public int CompareTo(object? obj)
+    public readonly int CompareTo(object? obj)
     {
         if (obj is pthread_spinlock_t other)
         {
@@ -83,15 +83,15 @@ public unsafe partial struct pthread_spinlock_t : IComparable, IComparable<pthre
         return (obj is null) ? 1 : throw new ArgumentException("obj is not an instance of pthread_spinlock_t.");
     }
 
-    public int CompareTo(pthread_spinlock_t other) => Value.CompareTo(other.Value);
+    public readonly int CompareTo(pthread_spinlock_t other) => Value.CompareTo(other.Value);
 
-    public override bool Equals(object? obj) => (obj is pthread_spinlock_t other) && Equals(other);
+    public override readonly bool Equals(object? obj) => (obj is pthread_spinlock_t other) && Equals(other);
 
-    public bool Equals(pthread_spinlock_t other) => Value.Equals(other.Value);
+    public readonly bool Equals(pthread_spinlock_t other) => Value.Equals(other.Value);
 
-    public override int GetHashCode() => Value.GetHashCode();
+    public override readonly int GetHashCode() => Value.GetHashCode();
 
-    public override string ToString() => Value.ToString();
+    public override readonly string ToString() => Value.ToString();
 
-    public string ToString(string? format, IFormatProvider? formatProvider) => Value.ToString(format, formatProvider);
+    public readonly string ToString(string? format, IFormatProvider? formatProvider) => Value.ToString(format, formatProvider);
 }

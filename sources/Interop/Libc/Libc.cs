@@ -1,6 +1,7 @@
 // Copyright © Tanner Gooding and Contributors. Licensed under the MIT License (MIT). See License.md in the repository root for more information.
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -12,7 +13,10 @@ public static unsafe partial class LibC
 
     static LibC()
     {
-        NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), OnDllImport);
+        if (!Configuration.DisableResolveLibraryHook)
+        {
+            NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), OnDllImport);
+        }
     }
 
     private static IntPtr OnDllImport(string libraryName, Assembly assembly, DllImportSearchPath? searchPath)
@@ -50,7 +54,8 @@ public static unsafe partial class LibC
             }
         }
 
-        return NativeLibrary.TryLoad("libc", assembly, searchPath, out nativeLibrary);
+        nativeLibrary = IntPtr.Zero;
+        return false;
     }
 
     private static bool TryResolveLibpthread(Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
@@ -63,7 +68,8 @@ public static unsafe partial class LibC
             }
         }
 
-        return NativeLibrary.TryLoad("libpthread", assembly, searchPath, out nativeLibrary);
+        nativeLibrary = IntPtr.Zero;
+        return false;
     }
 
     private static bool TryResolveLibrt(Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
@@ -76,7 +82,8 @@ public static unsafe partial class LibC
             }
         }
 
-        return NativeLibrary.TryLoad("librt", assembly, searchPath, out nativeLibrary);
+        nativeLibrary = IntPtr.Zero;
+        return false;
     }
 
     private static bool TryResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath, out IntPtr nativeLibrary)
@@ -85,7 +92,7 @@ public static unsafe partial class LibC
 
         if (resolveLibrary != null)
         {
-            var resolvers = resolveLibrary.GetInvocationList();
+            var resolvers = resolveLibrary.GetInvocationList().Cast<DllImportResolver>();
 
             foreach (DllImportResolver resolver in resolvers)
             {

@@ -77,7 +77,7 @@ public partial struct timex
     public int Anonymous1
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield1 & 0x0;
         }
@@ -95,7 +95,7 @@ public partial struct timex
     public int Anonymous2
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield2 & 0x0;
         }
@@ -113,7 +113,7 @@ public partial struct timex
     public int Anonymous3
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield3 & 0x0;
         }
@@ -131,7 +131,7 @@ public partial struct timex
     public int Anonymous4
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield4 & 0x0;
         }
@@ -149,7 +149,7 @@ public partial struct timex
     public int Anonymous5
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield5 & 0x0;
         }
@@ -167,7 +167,7 @@ public partial struct timex
     public int Anonymous6
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield6 & 0x0;
         }
@@ -185,7 +185,7 @@ public partial struct timex
     public int Anonymous7
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield7 & 0x0;
         }
@@ -203,7 +203,7 @@ public partial struct timex
     public int Anonymous8
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield8 & 0x0;
         }
@@ -221,7 +221,7 @@ public partial struct timex
     public int Anonymous9
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield9 & 0x0;
         }
@@ -239,7 +239,7 @@ public partial struct timex
     public int Anonymous10
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield10 & 0x0;
         }
@@ -257,7 +257,7 @@ public partial struct timex
     public int Anonymous11
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get
+        readonly get
         {
             return _bitfield11 & 0x0;
         }
