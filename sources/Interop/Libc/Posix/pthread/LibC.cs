@@ -192,11 +192,11 @@ public static unsafe partial class LibC
     [DllImport("libc", ExactSpelling = true)]
     public static extern int pthread_attr_setscope(pthread_attr_t* __attr, int __scope);
 
-    [Obsolete]
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_attr_getstackaddr.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_attr_getstackaddr([NativeTypeName("const pthread_attr_t*")] pthread_attr_t* __attr, void** __stackaddr);
 
-    [Obsolete]
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_attr_setstackaddr.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_attr_setstackaddr(pthread_attr_t* __attr, void* __stackaddr);
 
@@ -248,6 +248,7 @@ public static unsafe partial class LibC
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_setconcurrency(int __level);
 
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_yield.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_yield();
 
@@ -302,6 +303,7 @@ public static unsafe partial class LibC
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutex_consistent(pthread_mutex_t* __mutex);
 
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_mutex_consistent_np.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutex_consistent_np(pthread_mutex_t* __mutex);
 
@@ -338,12 +340,14 @@ public static unsafe partial class LibC
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutexattr_getrobust([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __robustness);
 
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_mutexattr_getrobust_np.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutexattr_getrobust_np([NativeTypeName("const pthread_mutexattr_t *")] pthread_mutexattr_t* __attr, int* __robustness);
 
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutexattr_setrobust(pthread_mutexattr_t* __attr, int __robustness);
 
+    [Obsolete("https://man7.org/linux/man-pages/man3/pthread_mutexattr_setrobust_np.3.html")]
     [DllImport("libpthread", ExactSpelling = true)]
     public static extern int pthread_mutexattr_setrobust_np(pthread_mutexattr_t* __attr, int __robustness);
 
