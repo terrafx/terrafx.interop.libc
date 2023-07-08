@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct clockid_t : IComparable, IComparable<clockid_t>, IEquatable<clockid_t>, IFormattable
+public readonly unsafe partial struct clockid_t : IComparable, IComparable<clockid_t>, IEquatable<clockid_t>, IFormattable
 {
     public readonly int Value;
 

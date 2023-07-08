@@ -45,7 +45,25 @@ public static unsafe partial class ResolveDllImportTests
         }
         catch (Exception exception)
         {
-            Assert.Fail($"Fail: {exception.Message}");
+            switch (method.Name)
+            {
+                case "pthread_attr_getstackaddr":
+                case "pthread_attr_setstackaddr":
+                case "pthread_mutexattr_getrobust_np":
+                case "pthread_mutexattr_setrobust_np":
+                case "pthread_mutex_consistent_np":
+                case "pthread_yield":
+                {
+                    Assert.Warn($"Obsoleted: {exception.Message}");
+                    break;
+                }
+
+                default:
+                {
+                    Assert.Fail($"Fail: {exception.Message}");
+                    break;
+                }
+            }
         }
     }
 

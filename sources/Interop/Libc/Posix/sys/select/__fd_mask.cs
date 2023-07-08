@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct __fd_mask : IComparable, IComparable<__fd_mask>, IEquatable<__fd_mask>, IFormattable
+public readonly unsafe partial struct __fd_mask : IComparable, IComparable<__fd_mask>, IEquatable<__fd_mask>, IFormattable
 {
     public readonly nint Value;
 

@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct fpregset_t : IComparable, IComparable<fpregset_t>, IEquatable<fpregset_t>, IFormattable
+public readonly unsafe partial struct fpregset_t : IComparable, IComparable<fpregset_t>, IEquatable<fpregset_t>, IFormattable
 {
     public readonly void* Value;
 

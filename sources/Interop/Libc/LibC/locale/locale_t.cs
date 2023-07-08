@@ -12,7 +12,7 @@ using System;
 
 namespace TerraFX.Interop.LibC;
 
-public unsafe partial struct locale_t : IComparable, IComparable<locale_t>, IEquatable<locale_t>, IFormattable
+public readonly unsafe partial struct locale_t : IComparable, IComparable<locale_t>, IEquatable<locale_t>, IFormattable
 {
     public readonly void* Value;
 
