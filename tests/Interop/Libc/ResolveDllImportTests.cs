@@ -32,6 +32,7 @@ public static unsafe partial class ResolveDllImportTests
         }
     }
 
+#pragma warning disable CA1031 // Do not catch general exception types
     private static void ProcessMethod(MethodInfo method)
     {
         if (!method.Attributes.HasFlag(MethodAttributes.PinvokeImpl))
@@ -66,6 +67,7 @@ public static unsafe partial class ResolveDllImportTests
             }
         }
     }
+#pragma warning restore CA1031 // Do not catch general exception types
 
     private static void ProcessType(Type type)
     {

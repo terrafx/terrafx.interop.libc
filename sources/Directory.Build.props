@@ -12,6 +12,7 @@
 
   <PropertyGroup>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <EnablePackageValidation>false</EnablePackageValidation>
     <TerraFXProjectCategory>sources</TerraFXProjectCategory>
   </PropertyGroup>
 

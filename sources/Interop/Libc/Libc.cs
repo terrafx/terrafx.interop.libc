@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+[assembly: DefaultDllImportSearchPaths(DllImportSearchPath.SafeDirectories)]
+
 namespace TerraFX.Interop.LibC;
 
 public static unsafe partial class LibC
@@ -26,17 +28,17 @@ public static unsafe partial class LibC
             return nativeLibrary;
         }
 
-        if (libraryName.Equals("libc") && TryResolveLibc(assembly, searchPath, out nativeLibrary))
+        if (libraryName.Equals("libc", StringComparison.OrdinalIgnoreCase) && TryResolveLibc(assembly, searchPath, out nativeLibrary))
         {
             return nativeLibrary;
         }
 
-        if (libraryName.Equals("libpthread") && TryResolveLibpthread(assembly, searchPath, out nativeLibrary))
+        if (libraryName.Equals("libpthread", StringComparison.OrdinalIgnoreCase) && TryResolveLibpthread(assembly, searchPath, out nativeLibrary))
         {
             return nativeLibrary;
         }
 
-        if (libraryName.Equals("librt") && TryResolveLibrt(assembly, searchPath, out nativeLibrary))
+        if (libraryName.Equals("librt", StringComparison.OrdinalIgnoreCase) && TryResolveLibrt(assembly, searchPath, out nativeLibrary))
         {
             return nativeLibrary;
         }

@@ -1,0 +1,123 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/ISSUE_TEMPLATE/">
+    <File Path=".github/ISSUE_TEMPLATE/bug.md" />
+    <File Path=".github/ISSUE_TEMPLATE/proposal.md" />
+    <File Path=".github/ISSUE_TEMPLATE/regression.md" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/ci.yml" />
+  </Folder>
+  <Folder Name="/.root/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="build.cmd" />
+    <File Path="build.sh" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+    <File Path="exclusion.dic" />
+    <File Path="global.json" />
+    <File Path="LICENSE.md" />
+    <File Path="NuGet.config" />
+    <File Path="pack.cmd" />
+    <File Path="pack.sh" />
+    <File Path="restore.cmd" />
+    <File Path="restore.sh" />
+    <File Path="TerraFX.snk" />
+    <File Path="test.cmd" />
+    <File Path="test.sh" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/CODEOWNERS" />
+    <File Path="docs/CODE_OF_CONDUCT.md" />
+    <File Path="docs/CONTRIBUTING.md" />
+    <File Path="docs/ISSUE_TEMPLATE.md" />
+    <File Path="docs/PULL_REQUEST_TEMPLATE.md" />
+    <File Path="docs/README.md" />
+  </Folder>
+  <Folder Name="/generation/">
+    <File Path="generation/remap.rsp" />
+    <File Path="generation/settings.rsp" />
+  </Folder>
+  <Folder Name="/generation/libc/" />
+  <Folder Name="/generation/libc/errno/">
+    <File Path="generation/libc/errno/generate.rsp" />
+    <File Path="generation/libc/errno/header.txt" />
+    <File Path="generation/libc/errno/libc-errno.h" />
+  </Folder>
+  <Folder Name="/generation/libc/locale/">
+    <File Path="generation/libc/locale/generate.rsp" />
+    <File Path="generation/libc/locale/header.txt" />
+    <File Path="generation/libc/locale/libc-locale.h" />
+  </Folder>
+  <Folder Name="/generation/libc/signal/">
+    <File Path="generation/libc/signal/generate.rsp" />
+    <File Path="generation/libc/signal/header.txt" />
+    <File Path="generation/libc/signal/libc-signal.h" />
+  </Folder>
+  <Folder Name="/generation/libc/stddef/">
+    <File Path="generation/libc/stddef/generate.rsp" />
+    <File Path="generation/libc/stddef/header.txt" />
+    <File Path="generation/libc/stddef/libc-stddef.h" />
+  </Folder>
+  <Folder Name="/generation/libc/time/">
+    <File Path="generation/libc/time/generate.rsp" />
+    <File Path="generation/libc/time/header.txt" />
+    <File Path="generation/libc/time/libc-time.h" />
+  </Folder>
+  <Folder Name="/generation/Posix/" />
+  <Folder Name="/generation/Posix/pthread/">
+    <File Path="generation/Posix/pthread/generate.rsp" />
+    <File Path="generation/Posix/pthread/header.txt" />
+    <File Path="generation/Posix/pthread/libc-pthread.h" />
+  </Folder>
+  <Folder Name="/generation/Posix/sched/">
+    <File Path="generation/Posix/sched/generate.rsp" />
+    <File Path="generation/Posix/sched/header.txt" />
+    <File Path="generation/Posix/sched/libc-sched.h" />
+  </Folder>
+  <Folder Name="/generation/Posix/sys/" />
+  <Folder Name="/generation/Posix/sys/select/">
+    <File Path="generation/Posix/sys/select/generate.rsp" />
+    <File Path="generation/Posix/sys/select/header.txt" />
+    <File Path="generation/Posix/sys/select/libc-sys-select.h" />
+  </Folder>
+  <Folder Name="/generation/Posix/sys/time/">
+    <File Path="generation/Posix/sys/time/generate.rsp" />
+    <File Path="generation/Posix/sys/time/header.txt" />
+    <File Path="generation/Posix/sys/time/libc-sys-time.h" />
+  </Folder>
+  <Folder Name="/generation/Posix/sys/types/">
+    <File Path="generation/Posix/sys/types/generate.rsp" />
+    <File Path="generation/Posix/sys/types/header.txt" />
+    <File Path="generation/Posix/sys/types/libc-sys-types.h" />
+  </Folder>
+  <Folder Name="/scripts/">
+    <File Path="scripts/build.ps1" />
+    <File Path="scripts/build.sh" />
+    <File Path="scripts/cibuild.cmd" />
+    <File Path="scripts/cibuild.sh" />
+  </Folder>
+  <Folder Name="/sources/">
+    <File Path="sources/Directory.Build.props" />
+    <File Path="sources/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/sources/Interop/">
+    <File Path="sources/Interop/.editorconfig" />
+  </Folder>
+  <Folder Name="/sources/Interop/Libc/">
+    <Project Path="sources/Interop/Libc/TerraFX.Interop.Libc.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <File Path="tests/Directory.Build.props" />
+    <File Path="tests/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/tests/Interop/">
+    <File Path="tests/Interop/.editorconfig" />
+  </Folder>
+  <Folder Name="/tests/Interop/Libc/">
+    <Project Path="tests/Interop/Libc/TerraFX.Interop.Libc.UnitTests.csproj" />
+  </Folder>
+</Solution>
